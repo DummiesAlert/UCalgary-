@@ -1,0 +1,10 @@
+pwd                     Show Current Directory 
+ls                      List Content of Current Directory
+ls -l                   List Directory in Full Format
+ls -a                   List ALL Files Including Hidden Files
+clear                   Clear Terminal 
+cd                      Change Directory to Your Own user Home Directory
+cd ..                   Change Directory to Parent 
+cd -                    Change to Previous Directory
+cd [Directory_Name]     Change Directory to [Directory_Name]
+exit                    Exit the Terminal
