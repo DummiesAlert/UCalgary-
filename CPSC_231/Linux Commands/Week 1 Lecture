@@ -8,3 +8,23 @@ cd ..                   Change Directory to Parent
 cd -                    Change to Previous Directory
 cd [Directory_Name]     Change Directory to [Directory_Name]
 exit                    Exit the Terminal
+
+Try This: 
+
+    1. Navigate to /usr/bin  directory (every linux command has a executable binary in that directory, you can show them ls, rm, gedit, …)
+    2. Show the files in this directory
+    3. Navigate back to their user home directory
+    4. Show the files in this directory
+
+       Work with linux environment, file manager, etc.
+
+Solution: 
+
+    1. cd /usr/bin
+    2. ls
+       ls -l 
+       ls -a 
+    3. cd ..
+       ls
+       ls -l 
+       ls -a 
