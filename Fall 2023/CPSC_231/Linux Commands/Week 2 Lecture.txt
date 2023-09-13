@@ -1,3 +1,8 @@
 ssh zhuoxi.hong1@cslinux.ucalgary.ca
     password . . . 
     verify
+
+Copying Files From Your COmputer to Your Linux Account
+
+    1. scp [local File_Name] [Username]@cslinux.ucalgary.ca:[foldertocopyto]
+        Example: scp mycode.py [Username]@cslinux.ucalgary.ca:/Folder Directory
