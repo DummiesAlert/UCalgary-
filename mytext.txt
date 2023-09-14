@@ -1,0 +1,1 @@
+gedit /home/csusers/zhuoxi.hong1/Desktop/UCalgary-/mytext.txt
