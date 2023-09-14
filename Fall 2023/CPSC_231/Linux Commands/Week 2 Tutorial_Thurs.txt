@@ -4,7 +4,7 @@ rm [File_Name]                              Remove File/Delete
 rm -r [File_Name] [Directory_Name]          Remove Directory (Inclucing ALL Files and Sub-Directories)
 mv [File_Name] [Directory_Name]             Move File to Directory
 cp [File_Name] [Directory_Name]             Copy Files to Directory (-r for Directory)
-chmod [u/g/o] [+/-] [r/w/x] [File_Name]     Change Permission on File
+chmod [u/g/o] [+/-] [r/w/x] [File_Name]     Change Permission on File (Linux Command)
 
 [u/g/o]
 
@@ -37,7 +37,7 @@ Solution:
     6. cat > C:\Users\georg\source\repos\UCalgary-\newtext.txt. 
     7. cp C:\Users\georg\source\repos\UCalgary-\newtext.txt C:\Users\georg\source\repos\UCalgary-\sample
     8. No Idea YET. chmod u = rw, og = r C:\Users\georg\source\repos\UCalgary-\newtext.txt
-    9. No Idea YET. 
+    9. No Idea YET. Seems like only Linux Machines Works. 
     10. rm C:\Users\georg\source\repos\UCalgary-\newtext.txt
         rm C:\Users\georg\source\repos\UCalgary-\sample\newtext.txt
         rm C:\Users\georg\source\repos\UCalgary-\mytext
