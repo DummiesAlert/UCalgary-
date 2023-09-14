@@ -37,8 +37,8 @@ Solution:
     5. mv C:\Users\georg\source\repos\UCalgary-\sample\mytext.txt C:\Users\georg\source\repos\UCalgary-\mytext
     6. cat > C:\Users\georg\source\repos\UCalgary-\newtext.txt. 
     7. cp C:\Users\georg\source\repos\UCalgary-\newtext.txt C:\Users\georg\source\repos\UCalgary-\sample
-    8. No Idea YET. chmod u = rw, og = r C:\Users\georg\source\repos\UCalgary-\newtext.txt
-    9. No Idea YET. Seems like only Linux Machines Works. 
+    8. chmod g+r /home/csusers/zhuoxi.hong1/Desktop/UCalgary-/mytext.txt [CAN READ]
+    9. chmod g+w /home/csusers/zhuoxi.hong1/Desktop/UCalgary-/mytext.txt [CAN WRITE]
     10. rm C:\Users\georg\source\repos\UCalgary-\newtext.txt
         rm C:\Users\georg\source\repos\UCalgary-\sample\newtext.txt
         rm C:\Users\georg\source\repos\UCalgary-\mytext
