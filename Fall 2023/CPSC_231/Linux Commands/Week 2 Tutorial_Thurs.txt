@@ -1,5 +1,5 @@
 mkdir [Directory_Name]                      Make Directory
-gedit [File_Name]                           Open Text Editor Gedit(Vim/Code/Nano)
+gedit [File_Name]                           Open Text Editor Gedit(Vim/Code/Nano) (Linux Command)
 rm [File_Name]                              Remove File/Delete
 rm -r [File_Name] [Directory_Name]          Remove Directory (Inclucing ALL Files and Sub-Directories)
 mv [File_Name] [Directory_Name]             Move File to Directory
@@ -31,6 +31,7 @@ Solution:
 
     1. pwd
     2. mkdir sample
+   2.5 gedit /home/csusers/zhuoxi.hong1/Desktop/UCalgary-/mytext.txt
     3. cd C:\Users\georg\source\repos\UCalgary-\sample
     4. cat > C:\Users\georg\source\repos\UCalgary-\sample\mytext.txt
     5. mv C:\Users\georg\source\repos\UCalgary-\sample\mytext.txt C:\Users\georg\source\repos\UCalgary-\mytext
