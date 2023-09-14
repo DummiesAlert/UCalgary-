@@ -32,14 +32,15 @@ Solution:
     1. pwd
     2. mkdir sample
     3. cd C:\Users\georg\source\repos\UCalgary-\sample
-    4. Hand Create? mytext.txt
+    4. cat > C:\Users\georg\source\repos\UCalgary-\sample\mytext.txt
     5. mv C:\Users\georg\source\repos\UCalgary-\sample\mytext.txt C:\Users\georg\source\repos\UCalgary-\mytext
-    6. Hand Create? newtext.txt. 
-    7. cp C:\Users\georg\source\repos\UCalgary-\newtext C:\Users\georg\source\repos\UCalgary-\sample
-    8. No Idea YET.
+    6. cat > C:\Users\georg\source\repos\UCalgary-\newtext.txt. 
+    7. cp C:\Users\georg\source\repos\UCalgary-\newtext.txt C:\Users\georg\source\repos\UCalgary-\sample
+    8. No Idea YET. chmod u = rw, og = r C:\Users\georg\source\repos\UCalgary-\newtext.txt
     9. No Idea YET. 
-    10. rm C:\Users\georg\source\repos\UCalgary-\newtext
-        rm C:\Users\georg\source\repos\UCalgary-\sample\newtext
+    10. rm C:\Users\georg\source\repos\UCalgary-\newtext.txt
+        rm C:\Users\georg\source\repos\UCalgary-\sample\newtext.txt
         rm C:\Users\georg\source\repos\UCalgary-\mytext
-        rm C:\Users\georg\source\repos\UCalgary-\sample\mytext
+
+        cd .. (Then Run Delete directory)
         rm -r C:\Users\georg\source\repos\UCalgary-\sample\
