@@ -31,14 +31,14 @@ Solution:
 
     1. pwd
     2. mkdir sample
-   2.5 gedit /home/csusers/zhuoxi.hong1/Desktop/UCalgary-/mytext.txt
+   2.5 gedit /home/csusers/zhuoxi.hong1/Desktop/UCalgary-/mytext.txt (Linux Only)
     3. cd C:\Users\georg\source\repos\UCalgary-\sample
     4. cat > C:\Users\georg\source\repos\UCalgary-\sample\mytext.txt
     5. mv C:\Users\georg\source\repos\UCalgary-\sample\mytext.txt C:\Users\georg\source\repos\UCalgary-\mytext
     6. cat > C:\Users\georg\source\repos\UCalgary-\newtext.txt. 
     7. cp C:\Users\georg\source\repos\UCalgary-\newtext.txt C:\Users\georg\source\repos\UCalgary-\sample
     8. No Idea YET. chmod u = rw, og = r C:\Users\georg\source\repos\UCalgary-\newtext.txt
-    9. No Idea YET. Seems like only Linux Machines Works. 
+    9. No Idea YET. 
     10. rm C:\Users\georg\source\repos\UCalgary-\newtext.txt
         rm C:\Users\georg\source\repos\UCalgary-\sample\newtext.txt
         rm C:\Users\georg\source\repos\UCalgary-\mytext
