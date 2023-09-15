@@ -2,7 +2,20 @@ ssh zhuoxi.hong1@cslinux.ucalgary.ca
     password . . . 
     verify
 
-Copying Files From Your COmputer to Your Linux Account
+Copying Files From Your Computer to Your Linux Account
 
     1. scp [local File_Name] [Username]@cslinux.ucalgary.ca:[foldertocopyto]
         Example: scp mycode.py [Username]@cslinux.ucalgary.ca:/Folder Directory
+
+
+    In this Case. 
+
+        1. cd to folder it has
+        2. scp b.py zhuoxi.hong1@cslinux.ucalgary.ca:~
+
+        See 100% WE Golden (ie, b.py                       100% 1339   137.7KB/s   00:00)
+
+        To Run Ai Auto-Grader
+
+            1. /home/profs/richard.zhao1/231/a1/autograde b.py
+

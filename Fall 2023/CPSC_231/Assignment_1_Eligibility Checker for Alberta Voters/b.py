@@ -1,12 +1,14 @@
+# Author: Zhuo Xi Hong
+
+# Import datetime to Indicate Current Date Instead of Manual Inputs
 from datetime import datetime
 month = datetime.now().month
 day = datetime.now().day
 year = datetime.now().year
 
-def quit(exitMessage):
-    
-    print("You DO NOT MEET the Basic Requirements.")
-    print(exitMessage)
+def quit():
+
+    print("You Are Not Eligible To Vote")
 
 print("Welcome to The Alberta Voter Program!!")
 
