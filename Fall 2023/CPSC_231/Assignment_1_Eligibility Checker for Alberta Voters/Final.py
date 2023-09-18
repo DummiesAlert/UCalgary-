@@ -30,7 +30,7 @@ elif dofbMon < 1 or dofbMon > 12:
     
     print("Invalid month.")
     
-elif dofbDay < 1 or dofbDay > 31:
+elif dofbDay < 1 or dofbDay > 31 #or (dofbMon == [1, 3, 5, 7, 8, 10, 12] and dofbDay == 31) or (dofbMon == [2] and dofbDay >= 29):
     
     print("Invalid day.")
     
@@ -44,7 +44,7 @@ else:
     ageMonth = month - dofbMon
     ageDay = day - dofbDay
     
-    if ageYear < 18 or ageMonth < month or ageDay < day:
+    if ageYear < 18: #or ageMonth < month or ageDay < day
         
         print("Invalid birth date.")
         
