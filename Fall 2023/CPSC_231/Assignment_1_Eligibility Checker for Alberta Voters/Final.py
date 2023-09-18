@@ -22,11 +22,11 @@ dofbDay = int(input("What is the Day of Your Birthdate? "))
 
 dofbYear = int(input("What is the Year of Your Birthdate? (ie, 1954) "))
 
-if cc != 'Yes' and cc != 'No':
+if cc != 'yes' and cc != 'no':
     
     quit("Invalid Response to Citizenship")
     
-elif ar != 'Yes' and ar != 'No':
+elif ar != 'yes' and ar != 'no':
     
     quit("Invalid Response to Residency")
     
