@@ -41,22 +41,19 @@ elif dofbYear < 1900 or dofbYear > 2023:
 else:
     
     ageYear = year - dofbYear
-    ageMonth = month - dofbMon
-    ageDay = day - dofbDay
-    
-    if ageYear < 18 or ageMonth <= 2 or ageDay <= 3: #Added This One!
+    ageMonth = month - dofbMon #Un-Used
+    ageDay = day - dofbDay #Un-Used
+
+    if ageYear < 18:
         
         print("Invalid birth date.")
-        print("You are not eligible to vote.")
         
     elif cc == 'no':
         
-        print("Not a Canadian Citizen.")
         print("You are not eligible to vote.")
         
     elif ar == 'no':
         
-        print("Not an Alberta Resident.")
         print("You are not eligible to vote.")
         
     else:
@@ -64,13 +61,13 @@ else:
         print("You are eligible to vote.")
         
         
-"""Problem Output:
+"""Problem Output: Test Case 8 and 11. 
 
 Test case 1:
 Checking the last 29 characters in output:
-===Your output:     "1954) Not a Canadian Citizen."
+===Your output:     "You are not eligible to vote."
 ===Expected output: "You are not eligible to vote."
-===You are NOT correct.
+===You are correct.
 
 Test case 2:
 Checking the last 25 characters in output:
@@ -80,9 +77,9 @@ Checking the last 25 characters in output:
 
 Test case 3:
 Checking the last 32 characters in output:
-===Your output:     " Invalid response to citizenship"
+===Your output:     "Invalid response to citizenship."
 ===Expected output: "Invalid response to citizenship."
-===You are NOT correct.
+===You are correct.
 
 Test case 4:
 Checking the last 14 characters in output:
@@ -138,6 +135,6 @@ Checking the last 12 characters in output:
 ===Expected output: "Invalid day."
 ===You are correct.
 
-Total correct: 8
+Total correct: 10
 Total errors: 0
-** Total failed test cases: 4"""
+** Total failed test cases: 2"""
