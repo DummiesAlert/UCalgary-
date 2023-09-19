@@ -1,8 +1,8 @@
-
 # Author: Zhuo Xi Hong
 
 # Import datetime to Indicate Current Date Instead of Manual Inputs
 from datetime import datetime
+
 month = datetime.now().month
 day = datetime.now().day
 year = datetime.now().year
@@ -19,35 +19,47 @@ dofbDay = int(input("What is the Day of Your Birthdate? "))
 
 dofbYear = int(input("What is the Year of Your Birthdate? (ie, 1954) "))
 
+if cc != 'yes' and cc != 'no':
     
-ageYear = year - dofbYear
-ageMonth = month - dofbMon #Un-Used
-ageDay = day - dofbDay #Un-Used
+    print("Invalid response to citizenship.")
     
-#age = year - dofbYear - ((month, day)) < ((dofbMon, dofbDay))	
-#print(age, "years")
+elif ar != 'yes' and ar != 'no':
+    
+    print("Invalid response to residency.")
+    
+elif dofbMon < 1 or dofbMon > 12:
+    
+    print("Invalid month.")
+    
+elif dofbDay < 1 or dofbDay > 31: #or (dofbMon == [1, 3, 5, 7, 8, 10, 12] and dofbDay == 31) or (dofbMon == [2] and dofbDay >= 29):
+    
+    print("Invalid day.")
+    
+elif dofbYear < 1900 or dofbYear > 2023:
+    
+    print("Invalid year.")
+    
+else:
+    
+    ageYear = year - dofbYear
 
-ageYear = year - dofbYear
-
-# Check if the birthday has occurred this year
-if month < dofbMon or (month == dofbMon and day < dofbDay):
-    ageYear -= 1
-
-print(ageYear, "years")
-
-if ageYear < 18:
+    # Check if the Birthday has Occurred This Year
+    if month < dofbMon or (month == dofbMon and day < dofbDay):
+        ageYear -= 1
+    
+    if ageYear <= 18:
         
         print("Invalid birth date.")
         
-elif cc == 'no':
+    elif cc == 'no':
         
         print("You are not eligible to vote.")
         
-elif ar == 'no':
+    elif ar == 'no':
         
         print("You are not eligible to vote.")
         
-else:
+    else:
         
         print("You are eligible to vote.")
         

@@ -2,6 +2,7 @@
 
 # Import datetime to Indicate Current Date Instead of Manual Inputs
 from datetime import datetime
+
 month = datetime.now().month
 day = datetime.now().day
 year = datetime.now().year
@@ -41,10 +42,12 @@ elif dofbYear < 1900 or dofbYear > 2023:
 else:
     
     ageYear = year - dofbYear
-    ageMonth = month - dofbMon #Un-Used
-    ageDay = day - dofbDay #Un-Used
 
-    if ageYear < 18:
+    # Check if the Birthday has Occurred This Year
+    if month < dofbMon or (month == dofbMon and day < dofbDay):
+        ageYear -= 1
+    
+    if ageYear <= 18:
         
         print("Invalid birth date.")
         
