@@ -44,7 +44,7 @@ else:
     ageMonth = month - dofbMon
     ageDay = day - dofbDay
     
-    if ageYear < 18 or ageMonth <= 2 or ageDay <= 3:
+    if ageYear < 18 or ageMonth <= 2 or ageDay <= 3: #Added This One!
         
         print("Invalid birth date.")
         print("You are not eligible to vote.")
