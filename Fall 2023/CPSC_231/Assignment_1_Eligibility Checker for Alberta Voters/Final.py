@@ -30,7 +30,7 @@ elif dofbMon < 1 or dofbMon > 12:
     
     print("Invalid month.")
     
-elif dofbDay < 1 or dofbDay > 31 #or (dofbMon == [1, 3, 5, 7, 8, 10, 12] and dofbDay == 31) or (dofbMon == [2] and dofbDay >= 29):
+elif dofbDay < 1 or dofbDay > 31: #or (dofbMon == [1, 3, 5, 7, 8, 10, 12] and dofbDay == 31) or (dofbMon == [2] and dofbDay >= 29):
     
     print("Invalid day.")
     
@@ -47,6 +47,7 @@ else:
     if ageYear < 18: #or ageMonth < month or ageDay < day
         
         print("Invalid birth date.")
+        print("You are not eligible to vote.")
         
     elif cc == 'no':
         
@@ -56,6 +57,7 @@ else:
     elif ar == 'no':
         
         print("Not an Alberta Resident.")
+        print("You are not eligible to vote.")
         
     else:
         
