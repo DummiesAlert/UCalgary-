@@ -31,11 +31,12 @@ elif dofbMon < 1 or dofbMon > 12:
     
     print("Invalid month.")
     
-elif dofbDay < 1 or dofbDay > 31: #or (dofbMon == [1, 3, 5, 7, 8, 10, 12] and dofbDay == 31) or (dofbMon == [2] and dofbDay >= 29):
+elif (dofbMon == 2 and (dofbDay < 1 or dofbDay > 29)) or ((dofbMon == 4 or dofbMon == 6 or dofbMon == 9 or dofbMon == 11) and (dofbDay < 1 or dofbDay > 30)) or (dofbDay < 1 or dofbDay > 31): #dofbDay < 1 or dofbDay > 31: #or (dofbMon == [1, 3, 5, 7, 8, 10, 12] and dofbDay == 31) or (dofbMon == [2] and dofbDay >= 29):
+    #or (dofbMon == 2 and (dofbDay < 1 or dofbDay > 29)) or ((dofbMon == 4 or dofbMon == 6 or dofbMon == 9 or dofbMon == 11) and (dofbDay < 1 or dofbDay > 30)) or (dofbDay < 1 or dofbDay > 31):
     
     print("Invalid day.")
     
-elif dofbYear < 1900 or dofbYear > 2023:
+elif dofbYear < 1900 or dofbYear > year:
     
     print("Invalid year.")
     
@@ -47,9 +48,13 @@ else:
     if month < dofbMon or (month == dofbMon and day < dofbDay):
         ageYear -= 1
     
-    if ageYear <= 18:
+    if ageYear < 18:
         
         print("Invalid birth date.")
+        
+    elif (dofbMon < 1 or dofbMon > 12) or (dofbDay < 1 or dofbDay > 31) or (dofbYear < 1900 or dofbYear > 2023):
+        
+        print("You are not eligible to vote.")
         
     elif cc == 'no':
         
