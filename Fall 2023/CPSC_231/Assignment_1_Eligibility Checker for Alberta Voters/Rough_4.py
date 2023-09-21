@@ -16,8 +16,8 @@ dofbDay = int(input("What is the Day of Your Birthdate? "))
 dofbYear = int(input("What is the Year of Your Birthdate? (ie, 1954) "))
 
 #Date Values for Elif to Check If Date in Future
-#currentDate = datetime.now().date()
-#dofbDate = date(dofbYear, dofbMon, dofbDay)
+currentDate = str(datetime.now().date())
+dofbDate = str(date(dofbYear, dofbMon, dofbDay))
 
 if cc != 'yes' and cc != 'no':
     
@@ -69,9 +69,9 @@ else:
         print("Invalid birth date.")
 
     #Check if the Date is in the Future
-    #elif currentDate > dofbDate: 
+    elif currentDate > dofbDate: 
     
-        #print("Invalid birth date.")
+        print("Invalid birth date.")
         
     elif cc == 'no':
         
