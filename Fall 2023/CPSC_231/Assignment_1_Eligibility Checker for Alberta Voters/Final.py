@@ -48,12 +48,12 @@ else:
     
     if ageYear < 18:
         
-        print("Invalid birth date.")
+        print("You are not eligible to vote.")
     
     #This Elif Causing Problems
     elif (dofbMon < 1 or dofbMon > 12) or (dofbDay < 1 or dofbDay > 31) or (dofbYear < 1900 or dofbYear > year):
         
-        print("You are not eligible to vote.")
+        print("Invalid birth date.")
         
     elif cc == 'no':
         
