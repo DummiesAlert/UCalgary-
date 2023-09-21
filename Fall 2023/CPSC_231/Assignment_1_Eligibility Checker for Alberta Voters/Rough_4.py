@@ -45,7 +45,7 @@ else:
 
     # Check if the Birthday has Occurred This Year
     if month < dofbMon or (month == dofbMon and day < dofbDay):
-        ageYear -= 1
+        ageYear -= 1 
     
     if currentDate > dofbDate: 
 
