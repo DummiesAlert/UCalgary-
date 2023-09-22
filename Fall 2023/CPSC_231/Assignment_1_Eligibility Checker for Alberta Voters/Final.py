@@ -73,6 +73,7 @@ else:
     
     ageYear = year - dofbYear
     
+    #If the Birthdate Occured This Year
     if month < dofbMon or (month == dofbMon and day < dofbDay):
     
         ageYear -= 1
