@@ -44,7 +44,7 @@ else:
 
     # Check if the Birthday has Occurred This Year
     if month < dofbMon or (month == dofbMon and day < dofbDay):
-        ageYear -= 1
+        ageYear += 1
     
     if ageYear < 18:
         
@@ -54,6 +54,10 @@ else:
     elif (dofbYear > year) and (dofbMon > month) and (dofbDay > day):
         
         print("Invalid birth date.")
+        
+    elif (dofbYear % 4 != 0) and (dofbYear % 100 != 0) and (dofbYear % 400 != 0):
+        
+        print("Invalid year.")
         
     elif (dofbMon < 1 or dofbMon > 12) or (dofbDay < 1 or dofbDay > 31) or (dofbYear < 1900 or dofbYear > 2023):
         
