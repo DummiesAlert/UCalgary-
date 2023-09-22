@@ -76,7 +76,7 @@ elif (dofbMon == 2 and dofbDay == 29) and (dofbYear % 4 != 0):
 # Conditional Determining if 30 Day Check exceeds months 4, 6, 9, 11.
 elif (dofbMon == 4 or dofbMon == 6 or dofbMon == 9 or dofbMon == 11) and (dofbDay > 30): 
 
-    print("Invalid birth date.")
+    print("Invalid birth date.") 
     
 # Conditionals Determining if Date in Future Check, 5 Conditional to Present Nicely and Include All Cases to Remove Flaws.  
 
