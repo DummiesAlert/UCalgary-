@@ -34,7 +34,7 @@ elif dofbDay < 1 or dofbDay > 31: #or (dofbMon == [1, 3, 5, 7, 8, 10, 12] and do
     
     print("Invalid day.")
     
-elif dofbYear < 1900 or dofbYear > year:
+elif dofbYear < 1900 or dofbYear > 2023:
     
     print("Invalid year.")
     
@@ -50,7 +50,7 @@ else:
         
         print("Invalid birth date.")
         
-    elif (dofbMon < 1 or dofbMon > 12) or (dofbDay < 1 or dofbDay > 31) or (dofbYear < 1900 or dofbYear > year):
+    elif (dofbMon < 1 or dofbMon > 12) or (dofbDay < 1 or dofbDay > 31) or (dofbYear < 1900 or dofbYear > 2023):
         
         print("You are not eligible to vote.")
         
