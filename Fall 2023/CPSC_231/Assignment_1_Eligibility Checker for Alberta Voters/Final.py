@@ -1,9 +1,10 @@
-# Author: Zhuo Xi Hong
+"""Author: Zhuo Xi Hong
 
-# Sources: TA in Tutorials: 
+Sources: TA in Tutorials: 
 
-# Import datetime to Indicate Current Date Instead of Manual Inputs
-#   Line 5-9 Given in Assignment Files
+Import datetime to Indicate Current Date Instead of Manual Inputs
+Line 8-12 Given in Assignment Files"""
+
 from datetime import datetime
 
 month = datetime.now().month
