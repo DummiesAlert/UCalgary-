@@ -1,9 +1,13 @@
 """Author: Zhuo Xi Hong
 
-Sources: TA in Tutorials: 
+Sources: 
+
+    TA in Tutorial(s): 
+    String Block Comments: https://www.w3schools.com/python/python_comments.asp
+    Try, Except ValueError: https://www.w3schools.com/python/python_try_except.asp
 
 Import datetime to Indicate Current Date Instead of Manual Inputs
-Line 8-12 Given in Assignment Files"""
+Line 12-16 Given in Assignment Files"""
 
 from datetime import datetime
 
@@ -21,6 +25,7 @@ dofbYear = int(input("What is the Year of Your Birthdate? (ie, 1954) "))
 # Conditional Determining If User Input is not 'yes' and 'no
 if cc != 'yes' and cc != 'no': 
     
+    # Try Case Determining if User Input is matches type 'str'
     try: 
         
         cc = cc
@@ -34,35 +39,36 @@ if cc != 'yes' and cc != 'no':
 # Conditional Determining If User Input is not 'yes' and 'no
 elif ar != 'yes' and ar != 'no':
     
+    # Try Case Determining if User Input is matches type 'str'
     try: 
         
         ar = ar
         
     except ValueError:
         
-        print("Invalid response to citizenship.")
+        print("Invalid response to residency.")
     
     print("Invalid response to residency.")
 
 # Conditional Determining if Month is in Month 1 to Month 12
 elif dofbMon < 1 or dofbMon > 12:
     
-        print("Invalid month.")
+    print("Invalid month.")
  
 # Conditional Determining if Day is in Day 1 to Day 31
 elif dofbDay < 1 or dofbDay > 31: 
         
-        print("Invalid day.")
+    print("Invalid day.")
 
 # Conditional Determining if Year is in 1900 to 2023
 elif dofbYear < 1900 or dofbYear > 2023:
     
-        print("Invalid year.")
+    print("Invalid year.")
 
 # Conditional Determining if Year is in the Future
 elif (dofbYear > year):
         
-        print("Invalid year.")
+    print("Invalid year.")
         
 # Conditional Determining if Leap Year Check, except 1900 Not Divisible by 4. 
 elif dofbMon == 2 and dofbDay == 29 and dofbYear == 1900: 
@@ -89,22 +95,22 @@ elif ((dofbYear > year) and (dofbMon > month) and (dofbDay > day)):
     # Determines If Year is Greater Than Current Date, when the Month and Day is the Same.
 elif ((dofbYear > year) and (dofbMon == month) and (dofbDay == day)):
         
-        print("Invalid birth date.")
+    print("Invalid birth date.")
     
     # Determines If Month is Greater Than Current Date, when the Year and Day is the Same.
 elif ((dofbYear == year) and (dofbMon > month) and (dofbDay == day)):
         
-        print("Invalid birth date.")
+    print("Invalid birth date.")
     
     # Determines If Day is Greater Than Current Date, when the Month and Year is the Same.
 elif ((dofbYear == year) and (dofbMon == month) and (dofbDay > day)):
         
-        print("Invalid birth date.")
+    print("Invalid birth date.")
     
     # Lastly Determines If Month and Day is Greater Than Current Date, when Year is the Same. 
 elif ((dofbYear == year) and (dofbMon > month) and (dofbDay > day)):
         
-        print("Invalid birth date.")
+    print("Invalid birth date.")
     
 # Conditional That Checks If or If no the User is Eligible to Vote, If Passes All the Conditionals Above.
 else: 
