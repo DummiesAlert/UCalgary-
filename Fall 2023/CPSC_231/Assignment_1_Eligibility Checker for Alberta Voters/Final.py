@@ -3,11 +3,14 @@
 Sources: 
 
     TA in Tutorial(s): 
+    
+        Debugging and Comment Convention. 
+        
     String Block Comments: https://www.w3schools.com/python/python_comments.asp
     Try, Except ValueError: https://www.w3schools.com/python/python_try_except.asp
 
 Import datetime to Indicate Current Date Instead of Manual Inputs
-Line 12-16 Given in Assignment Files"""
+Line 15-19 Given in Assignment Files"""
 
 from datetime import datetime
 
