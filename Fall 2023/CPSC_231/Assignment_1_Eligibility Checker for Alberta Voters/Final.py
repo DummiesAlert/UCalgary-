@@ -77,12 +77,12 @@ elif (dofbYear > year):
     print("Invalid year.")
         
 # Conditional Determining if Leap Year Check, except 1900 Not Divisible by 4. 
-elif dofbMon == 2 and dofbDay == 29 and dofbYear == 1900: 
+elif (dofbMon == 2 and dofbDay == 29) and dofbYear == 1900: 
     
     print("Invalid birth date.")
 
 # Conditional Determining if Leap Year Check Other Than 1900. 
-elif (dofbMon == 2 and dofbDay == 29) and (dofbYear % 4 != 0): 
+elif (dofbMon == 2 and dofbDay == 29) and dofbYear % 4 != 0: 
         
     print("Invalid birth date.")
         
