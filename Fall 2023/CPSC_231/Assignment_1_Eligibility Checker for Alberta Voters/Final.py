@@ -1,4 +1,5 @@
 """Author: Zhuo Xi Hong 
+   UCID: 30213715
    Last Modified: Sept/26/2023
 
 Prompt: Write a program that checks the eligibility to vote in Alberta elections.
