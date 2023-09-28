@@ -6,7 +6,7 @@ Prompt: Write a program that checks the eligibility to vote in Alberta elections
 
 Sources: 
     
-    Debugging and Comment Convention. 
+    Debugging and Comment Convention, 
         
     String Block Comments: https://www.w3schools.com/python/python_comments.asp
     Try, Except ValueError: https://www.w3schools.com/python/python_try_except.asp
