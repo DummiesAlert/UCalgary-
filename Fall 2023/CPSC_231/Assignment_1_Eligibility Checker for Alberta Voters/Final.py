@@ -1,14 +1,12 @@
 """Author: Zhuo Xi Hong 
    UCID: 30213715
-   Last Modified: Sept/26/2023
+   Last Modified: Sept/28/2023
 
 Prompt: Write a program that checks the eligibility to vote in Alberta elections.
 
 Sources: 
-
-    TA in Tutorial(s): 
     
-        Debugging and Comment Convention. 
+    Debugging and Comment Convention. 
         
     String Block Comments: https://www.w3schools.com/python/python_comments.asp
     Try, Except ValueError: https://www.w3schools.com/python/python_try_except.asp
