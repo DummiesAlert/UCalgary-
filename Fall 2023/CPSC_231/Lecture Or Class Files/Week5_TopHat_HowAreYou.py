@@ -9,8 +9,10 @@ while i >= 1:
     
     time.sleep(0.0000000000001)
     
-    i += 1"""
-    
+    i += 1
+
+"""
+
 userinput = str(input("Enter a word: "))
 print(userinput)
 
@@ -24,7 +26,7 @@ while userinput != 'exit':
 print("goodbye")
 
 """
-    
+
 Bin: 
 
 Enter a word: hello
