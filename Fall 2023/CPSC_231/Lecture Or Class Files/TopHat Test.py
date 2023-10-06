@@ -7,6 +7,6 @@ while i >= 1:
 
     print("You've Been Trolled")
     
-    time.sleep(5)
+    time.sleep(0.0000000000001)
     
     i += 1
