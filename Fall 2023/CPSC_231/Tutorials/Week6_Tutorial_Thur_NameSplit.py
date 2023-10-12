@@ -44,11 +44,14 @@ for i in range(0, len(a)):
         print(a[i])
 
 """
+num = int(input('Enter a number: '))
+
 sum = 0
 
-for i in range(100): 
+for i in range(0, num + 1):
 
     if i % 2 == 0:
 
-        sum = sum + i
-        print("sum =",sum)
+        sum += i
+
+print(f"Sum of all the even numbers is {sum}")
