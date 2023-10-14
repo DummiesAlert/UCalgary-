@@ -11,11 +11,11 @@ Copying Files From Your Computer to Your Linux Account
     In this Case. 
 
         1. cd to folder it has C:\Users\georg\source\repos\UCalgary-\Fall 2023\CPSC_231\Assignment_1_Eligibility Checker for Alberta Voters
-        2. scp bFinal.py zhuoxi.hong1@cslinux.ucalgary.ca:~
+        2. scp aFinal.py zhuoxi.hong1@cslinux.ucalgary.ca:~
 
         See 100% WE Golden (ie, b.py                       100% 1339   137.7KB/s   00:00)
 
         To Run Ai Auto-Grader
 
             1. Login to SSH
-            2. /home/profs/richard.zhao1/231/a2/autograde bFinal.py
+            2. /home/profs/richard.zhao1/231/a2/autograde aFinal.py

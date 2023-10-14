@@ -13,13 +13,14 @@ if dataPt <= 0:
     print("Must enter at least one data point.")
 
 years = []
+birthRates = []
 prevYear = -1
 
 for i in range(0, dataPt, 1):
     
     year = int(input(f"What is the year of data point {i + 1}? "))
     
-    if year > 0: 
+    if year < 0: 
         
         print("Invalid year.")
     
@@ -38,6 +39,7 @@ for i in range(0, dataPt, 1):
         print("Invalid birth rate.")
     
     years.append(year)
+    birthRates.append(birthRate)
     prevYear = years[-1]
     
     dataPt = 0
@@ -60,6 +62,9 @@ while dataPt != 0:
     
         print("End year must be after start year.")
     
+    #if startyear[] = years[1] then a = birthrate[1]
+    
+    # then (a x b) /2 = average. 
     averBirthRate = (years[startYear] == years[endYear]) / 2
     averBirthRate = round(averBirthRate, 2)
 

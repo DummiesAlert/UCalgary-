@@ -9,7 +9,9 @@ Sources:
 dataPt = int(input("How Many Data Points? "))
 
 end = True
+year = []
 years = []
+birthRates = []
 
 if dataPt <= 0: 
     
@@ -20,74 +22,82 @@ elif dataPt > 0:
     prevYear = -1
 
     for i in range(0, dataPt, 1):
-    
-        year = int(input(f"What is the year of data point {i + 1}? "))
-    
-        if year > 0: 
         
-            print("Invalid year.")
-            end = False
+        i = i
     
-        elif year in years: 
+        if end == True: 
+            
+            year = int(input(f"What is the year of data point {i + 1}? "))
+            years.append(year)
+
+            if year <= 0 and end == True: 
         
-            print("Same year entered twice.")
-            end = False
+                print("Invalid year.")
+                end = False
     
-        elif prevYear != -1 and year <= prevYear:
+            elif i > 0 and end == True: 
+    
+                if years in year:
+                    print("Same year entered twice.")
+                    end = False
+    
+            elif (prevYear != -1 and year <= prevYear) and end == True:
         
-            print("Years must be entered in order.")
-            end = False
+                print("Years must be entered in order.")
+                end = False
+                
+            prevYear = years[-1]
+            
+            birthRate = float(input(f"What is the birth rate of data point {i + 1}? "))
+            birthRates.append(birthRate)
     
-        birthRate = float(input(f"What is the birth rate of data point {i + 1}? "))
-    
-        if birthRate < 0.0: 
+            if birthRate < 0.0 and end == True: 
         
-            print("Invalid birth rate.")
-            end = False
+                print("Invalid birth rate.")
+                end = False
     
-        years.append(year)
-        prevYear = years[-1]
-        end = False
+        elif end == True: 
     
-elif end == True: 
+            startYear = int(input("Which year would you like to start with? "))
 
-    while dataPt != 0: 
+            if startYear not in years:
     
-        startYear = int(input("Which year would you like to start with? "))
+                print("The start year does not exist.")
 
-        if startYear not in years:
-    
-            print("The start year does not exist.")
+            endYear = int(input("Which year would you like to end with? "))
 
-        endYear = int(input("Which year would you like to end with? "))
+            if endYear not in years:
+    
+                print("The end year does not exist.")
+    
+            if endYear <= startYear: 
+    
+                print("End year must be after start year.")
+        
+            try:
+    
+                index = years.index(year)
+                a = birthRates[index]
+        
+            except ValueError:
+    
+                print("")
 
-        if endYear not in years:
-    
-            print("The end year does not exist.")
-    
-        if endYear <= startYear: 
-    
-            print("End year must be after start year.")
-    
-        averBirthRate = (years[startYear] == years[endYear]) / 2
-        averBirthRate = round(averBirthRate, 2)
+            averBirthRate = (years[startYear] == years[endYear]) / 2
+            averBirthRate = round(averBirthRate, 2)
 
-        if years[startYear] < years[endYear]: 
+            if years[startYear] < years[endYear]: 
     
-            trend = "There is an upward trend." 
+                trend = "There is an upward trend." 
     
-        elif years[startYear] > years[endYear]: 
+            elif years[startYear] > years[endYear]: 
     
-            trend = "There is a downward trend." 
+                trend = "There is a downward trend." 
     
-        elif years[startYear] == years[endYear]: 
+            elif years[startYear] == years[endYear]: 
     
-            trend = "There is a sideways trend." 
+                trend = "There is a sideways trend." 
     
-        #print(f"The average birth rate of these two years is: {averBirthRate:.2f}")
-        print(f"The average birth rate of these two years is: {averBirthRate:.2f}")
-        print(trend)
-
-else: 
-    
-    end = False
+            #print(f"The average birth rate of these two years is: {averBirthRate:.2f}")
+            print(f"The average birth rate of these two years is: {averBirthRate:.2f}")
+            print(trend)
