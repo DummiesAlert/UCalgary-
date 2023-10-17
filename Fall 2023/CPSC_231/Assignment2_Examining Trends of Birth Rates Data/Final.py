@@ -1,3 +1,15 @@
+"""Author: Zhuo Xi Hong 
+   UCID: 30213715
+   Last Modified: Oct/16/2023
+
+Prompt: Write a program that Examines the Trends of Birth Rates with Data
+
+Sources: 
+    
+
+
+"""
+
 Years = [] 
 birthRates = []
 
