@@ -5,8 +5,13 @@
 Prompt: Write a program that Examines the Trends of Birth Rates with Data
 
 Sources: 
-    
 
+    List Nature with W3 Schools: 
+    
+        - https://www.w3schools.com/python/python_lists_comprehension.asp
+        - https://www.w3schools.com/python/python_lists_loop.asp
+        - https://www.w3schools.com/python/python_lists_add.asp
+        - https://www.w3schools.com/python/python_lists.asp
 
 """
 
