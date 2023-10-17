@@ -1,6 +1,6 @@
 """Author: Zhuo Xi Hong 
    UCID: 30213715
-   Last Modified: Oct/16/2023
+   Last Modified: Oct/17/2023
 
 Prompt: Write a program that Examines the Trends of Birth Rates with Data
 
@@ -12,6 +12,10 @@ Sources:
         - https://www.w3schools.com/python/python_lists_loop.asp
         - https://www.w3schools.com/python/python_lists_add.asp
         - https://www.w3schools.com/python/python_lists.asp
+        
+    Tutorial: (Bool Logic)
+    
+        - TA Naman: Helped with Applying Bool Logic to Control the For Loop.
 
 """
 
