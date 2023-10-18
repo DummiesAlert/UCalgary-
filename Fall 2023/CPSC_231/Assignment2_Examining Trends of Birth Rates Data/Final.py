@@ -97,7 +97,7 @@ for i in range(dataPoints):
                         birthRates.append(inputRates)
                         infoFailed = False
 
-#Double Checks If All Data has Passed, infoFailed = True and infoPassed = False.             
+#Double Checks If All Data has Passed, infoFailed = True and infoPassed = True.             
 if infoPassed and not infoFailed:
     
     #Prompt for startYear from Years List in Order
