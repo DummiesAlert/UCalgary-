@@ -29,7 +29,7 @@ dataPoints = int(input("How many data points do you have? "))
 #Create Variables and Bool for Looping Control
 inputYears = 0 
 infoPassed = True
-infoFailed = True #Swappable
+infoFailed = True
 
 #Conditions Checking if dataPoints Less Than, Equal to 0
 if dataPoints <= 0: 
@@ -95,7 +95,7 @@ for i in range(dataPoints):
                         
                         #Add inputRates to List birthRates
                         birthRates.append(inputRates)
-                        infoFailed = False #Swappable
+                        infoFailed = False
 
 #Double Checks If All Data has Passed, infoFailed = True and infoPassed = False.             
 if infoPassed and not infoFailed:
