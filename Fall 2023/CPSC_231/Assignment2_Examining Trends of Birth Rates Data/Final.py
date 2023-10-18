@@ -49,22 +49,22 @@ for i in range(dataPoints):
         i = str(i + 1)
         
         #Prompt User for Year of dataPoint, when data point i
-        inputYears = int(input(f"What is the year of data point {i}?"))
+        inputYears = int(input(f"What is the year of data point {i}? "))
         
         #Checks if inputYear in List Years
         if inputYears in Years: 
             
             print("Same year entered twice.")
-            infoFailed = False
+            infoPassed = False
         
         #If Passes Moves On
         else: 
             
-            #Condition to Check if inputYears is Less Than  0
+            #Condition to Check if inputYears is Less Than 0
             if inputYears <= 0: 
                 
                 print("Invalid year.")
-                infoFailed = False
+                infoPassed = False
             
             #If Passes Moves On
             else: 
@@ -73,7 +73,7 @@ for i in range(dataPoints):
                 if prevYear > inputYears:
                     
                     print("Years must be entered in order. ")
-                    infoFailed = False
+                    infoPassed = False
                 
                 #If Passes Moves On
                 else: 
@@ -82,26 +82,26 @@ for i in range(dataPoints):
                     Years.append(inputYears)
                     
                     #Prompt User for birth rate i 
-                    inputRates = float(input(f"What is the birth rate of data point {i}?"))
+                    inputRates = float(input(f"What is the birth rate of data point {i}? "))
                     
                     #Check if inputRates if Greater Than 0.0 (float)
                     if inputRates < 0.0:
                         
                         print("Invalid birth rate.")
-                        infoFailed = False
+                        infoPassed = False
                     
                     #If Passes Moves On
                     else: 
                         
                         #Add inputRates to List birthRates
                         birthRates.append(inputRates)
-                        infoPassed = False #Swappable
+                        infoFailed = False #Swappable
 
 #Double Checks If All Data has Passed, infoFailed = True and infoPassed = False.             
-if infoFailed and not infoPassed:
+if infoPassed and not infoFailed:
     
     #Prompt for startYear from Years List in Order
-    startYear = int(input("Which year would you like to start with?"))
+    startYear = int(input("Which year would you like to start with? "))
 
     #Checks if startYear is in Years, if Not DNE
     if startYear not in Years: 
@@ -112,15 +112,15 @@ if infoFailed and not infoPassed:
     else: 
         
         #Checks if endYear From Years List in Order
-        endYear = int(input("Which year would you like to end with?"))
+        endYear = int(input("Which year would you like to end with? "))
         
         #Checks if endYear is in Years, if not DNE
         if endYear not in Years: 
             
             print("The end year does not exist.")
 
-        #Checks if endYear is Less Than startYear
-        elif endYear < startYear: 
+        #Checks if endYear is Less Than startYear or if dataPoint == 1 and 
+        elif (endYear < startYear) or (infoFailed and dataPoints == 1): 
             
             print("End year must be after start year.")
         
