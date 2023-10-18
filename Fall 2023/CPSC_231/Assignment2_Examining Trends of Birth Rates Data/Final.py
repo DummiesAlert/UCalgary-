@@ -8,10 +8,10 @@ Sources:
 
     List Nature with W3 Schools: 
     
-        - https://www.w3schools.com/python/python_lists_comprehension.asp
-        - https://www.w3schools.com/python/python_lists_loop.asp
-        - https://www.w3schools.com/python/python_lists_add.asp
-        - https://www.w3schools.com/python/python_lists.asp
+        - Lists Comprehension: https://www.w3schools.com/python/python_lists_comprehension.asp
+        - Lists with Loops: https://www.w3schools.com/python/python_lists_loop.asp
+        - Adding/Appending to Lists:https://www.w3schools.com/python/python_lists_add.asp
+        - Basic Lists: https://www.w3schools.com/python/python_lists.asp
         
     Tutorial: (Bool Logic)
     
