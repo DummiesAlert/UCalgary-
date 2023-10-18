@@ -135,7 +135,7 @@ if infoPassed and not infoFailed:
             averRate = (startIndex + endIndex) / 2
 
             #Set averRate to 2 Decimal Points and print. 
-            averRate = format(averRate, ".2f")
+            averRate = round(averRate, ".2f") #Changed to format
             print(f"The average birth rate of these two years is {averRate}.")
 
             #Conditional to Determine Upwards, Downwards and Sideways Trends. 
@@ -150,6 +150,9 @@ if infoPassed and not infoFailed:
             elif startIndex == endIndex:
                 
                 print("There is a sideways trend.")
+                
+[1,2]
+[3,4]
                 
 """
     
