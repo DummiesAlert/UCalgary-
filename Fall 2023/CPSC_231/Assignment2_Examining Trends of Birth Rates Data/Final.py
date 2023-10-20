@@ -120,7 +120,7 @@ if infoPassed and not infoFailed:
             print("The end year does not exist.")
 
         #Checks if endYear is Less Than startYear or if dataPoint == 1 and 
-        elif (endYear < startYear) or (infoFailed and dataPoints == 1): 
+        elif endYear <= startYear: 
             
             print("End year must be after start year.")
         
@@ -135,7 +135,7 @@ if infoPassed and not infoFailed:
             averRate = (startIndex + endIndex) / 2
 
             #Set averRate to 2 Decimal Points and print. 
-            averRate = round(averRate, ".2f") #Changed to format
+            averRate = round(averRate, 2)
             print(f"The average birth rate of these two years is {averRate}.")
 
             #Conditional to Determine Upwards, Downwards and Sideways Trends. 
@@ -150,9 +150,6 @@ if infoPassed and not infoFailed:
             elif startIndex == endIndex:
                 
                 print("There is a sideways trend.")
-                
-[1,2]
-[3,4]
                 
 """
     
