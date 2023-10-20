@@ -1,0 +1,9 @@
+I'll loosely describe what I did and you might be able to do the same kind of thing
+put your entire assignment inside of a loop, and loop it a lot
+write "import random" as the first line of code before this loop we're adding
+wherever you took input from a user, instead take a random value:
+random.randint(start, end, skip) will give you a random integer from the start to the end, you don't really need the skip
+random.choice(list) will give you a random element of the list. use this to keep values consistent (a random integer from range 0-2000 would give you too many scenarios to get past the "years must be entered in order" you can use a list to manipulate the liklihood of the values you get)
+random.uniform(start, end, skip) will give you a random float, just like the integer. round it your prefered number of decimal places to simplify your data
+after taking every input, print the input
+then run it and look through each case to see if each case makes sense
