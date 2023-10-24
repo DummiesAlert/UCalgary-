@@ -24,4 +24,4 @@ for i in range(0, numRows):
 
         print("* ", end = "")
 
-    print()
+    print(" ")
