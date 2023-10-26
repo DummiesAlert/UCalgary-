@@ -7,13 +7,13 @@
 #     exit() 
 # print("Good!")
 
-# if year > 2000 and colour != "Blue":
+# if year < 2000 and colour == "Blue":
 
-#     print("Good!")
+#     print("Invalid!")
 
 # else: 
 
-#     print("Invalid.")
+#     print("Good.")
 
 # Question 2: Decreasing Order
 
