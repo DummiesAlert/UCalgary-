@@ -41,9 +41,9 @@ while i < numRows:
 
 numRows = int(input("Enter the Amount of Rows!!"))
 
-for i in range(0, numRows): 
-    for j in range(numRows, i , -1): 
-
-        print("* ", end = "")
-
+for i in range(0, numRows):
+    for j in range(0, i + 1):
+        
+        print("* ", end="")
+        
     print(" ")
