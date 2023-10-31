@@ -8,16 +8,16 @@ def get_greetings(name):
 
 def is_whole_word(word, sentence): 
     
-    if word == "": 
-        
-        return True 
+    sentence = get_greetings() 
+
+    word = "Hello"
+
+    if word in sentence:
+
+        return True
     
     else: 
-        words = sentence.split()
-        for w in words: 
-            
-            if word.lower() == w.lower():
-                return True
+
         return False
  
 # A whole word is defined to be a word that is not a part of another word. For example: 
@@ -102,4 +102,4 @@ def get_answers(q_and_a, question):
 # Everything here is case insensitive – any upper/lower case combination of words should be 
 # recognized as words. 
 # You can assume the sentence will contain at most one keyword from the dictionary. If multiple 
-# keywords appear in the sentence, choose any one keyword and return its answer
+# keywords appear in the sentence, choose any one keyword and return its answer.
