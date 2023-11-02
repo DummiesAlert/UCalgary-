@@ -16,8 +16,7 @@ def is_whole_word(word, sentence):
     word = word.lower()
     sentence = sentence.lower()
    
-   #Checks Value(s) in word
-
+    #Checks Value(s) in word
     if ' ' in word: 
        
        return word in sentence
@@ -40,7 +39,7 @@ def is_whole_word(word, sentence):
             return True 
     
     #Otherwise, return False
-    return False    #Set All Words and Sentences to lower() to Easily Handle Words in a Sentence. 
+    return False
 
 #get_answers() Function
 def get_answers(q_and_a, question):
