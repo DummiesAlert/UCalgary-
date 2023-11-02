@@ -17,6 +17,7 @@
 """
 
 #Example: 
+control = False 
 
 def student(): 
 
@@ -38,7 +39,7 @@ def again():
     
     if again == 'quit': 
 
-        False
+        control = False
 
     elif again != 'yes': 
 
@@ -49,7 +50,6 @@ def again():
 student()
 
 count = 4
-control = False
 
 while control == True: 
 
