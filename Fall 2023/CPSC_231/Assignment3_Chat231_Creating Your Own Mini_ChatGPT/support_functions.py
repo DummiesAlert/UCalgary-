@@ -20,7 +20,7 @@ def is_whole_word(word, sentence):
                 return True
         return False
  
-# A whole word is defined to be a word that is not a part of another word. For example: 
+"""A whole word is defined to be a word that is not a part of another word. For example: 
 # • In the sentence "oh hi you!", "hi" is a whole word, so the function should return True.   
 # • In the sentence, "high up in the sky", the word "hi" does not exist as a whole word since 
 # it is a part of "high", so the function should return False.  
@@ -50,13 +50,13 @@ def is_whole_word(word, sentence):
 # This function is case insensitive – meaning any combination of upper/lower case words are 
 # accepted as valid, so "HI" counts as appearing in "hi you." Note: this is a different requirement 
 # than assignment 1. You are building a chatbot, after all, and people don’t follow proper 
-# grammar when chatting. 
+# grammar when chatting. """
 
 def get_answers(q_and_a, question):
+    print("")
     
     
- 
-# Step 8: 
+""" # Step 8: 
 # Create a new custom function in your support_functions.py file, called get_answers(q_and_a, 
 # question).  The function has the following: 
 # Parameters:  
@@ -102,4 +102,4 @@ def get_answers(q_and_a, question):
 # Everything here is case insensitive – any upper/lower case combination of words should be 
 # recognized as words. 
 # You can assume the sentence will contain at most one keyword from the dictionary. If multiple 
-# keywords appear in the sentence, choose any one keyword and return its answer
+# keywords appear in the sentence, choose any one keyword and return its answer"""
