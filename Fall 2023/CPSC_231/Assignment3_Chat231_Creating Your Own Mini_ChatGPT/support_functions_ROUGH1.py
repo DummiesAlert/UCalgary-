@@ -9,31 +9,36 @@ def get_greetings(name):
     #Otherwise Print Greeting With Name
     return f"Greetings {name}! I am your virtual assistant Chat231." 
 
-def is_whole_word(word, sentence):
+#is_whole_word() Function 
+def is_whole_word(word, sentence): 
     
-    # Set the sentence to lowercase for comparison
+    #Set All Words and Sentences to lower() to Easily Handle Words in a Sentence. 
+    word = word.lower()
     sentence = sentence.lower()
    
-    # Checks if the word contains spaces
-    if ' ' in word:
-        return word.lower() in sentence
-
-    # Assign a list containing punctuation
-    punctuation = [',', '.', '!', '?', ':', ';', '/', '"'] # Added the /, onwards.
+    #Checks Value(s) in word
+    if ' ' in word: 
+          
+       return word in sentence
+   
+    #Assign List Containing punctuation. 
+    punctuation = [',', '.', '!', '?', ':', ';', '/', '"'] #Added the /, onwards.
     
-    # Remove all punctuation in the sentence and replace with a space
-    for punc in punctuation:
-        sentence = sentence.replace(punc, ' ')
+    #Remove All Punctuation in the Sentence and Replace With a Space
+    for punc in punctuation: 
+        
+        sentence = sentence.replace(punc, '')
     
-    # After replacing punctuation, split the sentence into words
+    #After Replacing Punctuation, split() sentence into words
     words = sentence.split()
     
-    # For loop to check if word is in words (case-insensitive)
-    for wds in words:
-        if word.lower() == wds:
-            return True
+    #For Loop to Check if wds is in Words, if Yes return True
+    for wds in words: 
+        if word == wds: 
+            
+            return True 
     
-    # Otherwise, return False
+    #Otherwise, return False
     return False
 
 #get_answers() Function
