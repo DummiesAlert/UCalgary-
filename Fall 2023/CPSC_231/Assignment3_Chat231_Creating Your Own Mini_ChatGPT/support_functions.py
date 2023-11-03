@@ -18,11 +18,11 @@ def is_whole_word(word, sentence):
    
     #Checks Value(s) in word
     if ' ' in word: 
-       
+          
        return word in sentence
    
     #Assign List Containing punctuation. 
-    punctuation = [',', '.', '!', '?', ':', ';']
+    punctuation = [',', '.', '!', '?', ':', ';', '/', '"'] #Added the /, onwards.
     
     #Remove All Punctuation in the Sentence and Replace With a Space
     for punc in punctuation: 
