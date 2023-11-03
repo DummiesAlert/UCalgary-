@@ -56,3 +56,54 @@ def get_answers(q_and_a, question):
     
     #Otherwise, return a Message
     return "Sorry, I do not understand your question."
+
+"""
+    
+Screen Dump: 
+
+The following results are created by the auto-grader.
+Test get_greetings("Mac"):
+===Your return value:     "Greetings Mac! I am your virtual assistant Chat231."
+===Expected return value: "Greetings Mac! I am your virtual assistant Chat231."
+===You are correct.
+
+Test get_greetings(""):
+===Your return value:     "Hello there! I am your virtual assistant Chat231."
+===Expected return value: "Hello there! I am your virtual assistant Chat231."
+===You are correct.
+
+Test is_whole_word('hi', 'Hi2,there!'):
+===Your return value:     False    type: <class 'bool'>
+===Expected return value: False    type: <class 'bool'>
+===You are correct.
+
+Test is_whole_word('Hey', 'Hello Heyden!'):
+===Your return value:     False    type: <class 'bool'>
+===Expected return value: False    type: <class 'bool'>
+===You are correct.
+
+Test is_whole_word('250 days', 'There are 250 days!'):
+===Your return value:     True    type: <class 'bool'>
+===Expected return value: True    type: <class 'bool'>
+===You are correct.
+
+Test is_whole_word('CPSC.231', 'Doo you like cpsc.231!?'):
+===Your return value:     False    type: <class 'bool'>
+===Expected return value: True    type: <class 'bool'>
+===You are NOT correct.
+
+Test get_answers(q_and_a, 'Boo'):
+===Your return value:     Sorry, I do not understand your question.
+===Expected return value: Sorry, I do not understand your question.
+===You are correct.
+
+Test cases 8 to 14 are withheld until TA grades your assignment.
+Test your functions in scenarios that have not appeared above.
+
+Total correct: 6
+
+Total errors: 0
+
+** Total test case mistakes (including errors): 1
+    
+"""
