@@ -16,60 +16,79 @@
 
 """
 
-#Example: 
-control = False 
+# control = True  # Set control to True initially
 
-def student(): 
-
-    WTAAS = input("Want to Add a Student? ")
-    WTAAS = WTAAS.lower()
-
-    if WTAAS == 'yes': 
-
-        return True
+# def student(): 
     
-    else: 
+#     WTAAS = input("Want to Add a Student? ")
+#     WTAAS.lower()
     
-        return False
-
-def again():
-
-    again = str(input("Want to Add Another Student? (Yes to Continute, Quit to End) "))
-    again = again.lower()
-    
-    if again == 'quit': 
-
-        control = False
-
-    elif again != 'yes': 
-
-        print("Please Try Again!!!")
-        again = str(input("Want to Add Another Student? (Yes to Continute, Quit to End) "))
-        again = again.lower()
-
-student()
-
-count = 4
-
-while control == True: 
-
-    name = str(input("Enter Name to Add: "))
-    year = str(input("Enter Year to Add: "))
-
-    STUDENTS = \
-    {
+#     if WTAAS == 'yes': 
         
-        "Student1": "Jose", 
-        "Year1": "2032", 
-        "Student2":"Gordon", 
-        "Year2":"2034", 
-        "Student3": "Charls", 
-        "Year3": "2038"
+#         return True
+    
+#     else: 
         
-    }
+#         return False
 
-    STUDENTS[count] = {"Student"+str(count): name, "Year"+str(count): year}
+# def again():
+    
+#     again = input("Want to Add Another Student? (Yes to Continue, Quit to End) ")
+#     again.lower()
+    
+#     if again == 'quit': 
+        
+#         return False  # Set control to False if user wants to quit
+    
+#     elif again == 'yes': 
+        
+#         main()
+    
+#     elif again != 'yes': 
+        
+#         print("Please Try Again!!!")
+#         return again()
+    
+# def main(): 
+    
+#     student()
+#     count = 4
+    
+#     while control: 
+#         name = input("Enter Name to Add: ")
+#         year = input("Enter Year to Add: ")
 
-    again()
+#         STUDENTS = {
+#             "Student1": "Jose", 
+#             "Year1": "2032", 
+#             "Student2":"Gordon", 
+#             "Year2":"2034", 
+#             "Student3": "Charls", 
+#             "Year3": "2038"
+#         }
 
-    count += 1
+#         STUDENTS["Student"+str(count)] = name
+#         STUDENTS["Year"+str(count)] = year
+
+#         control = again()  # Update control based on user's input
+
+#         count += 1
+
+# main()
+
+students = []
+
+def student():
+    return input("Want to Add a Student? (Yes/No): ").lower() == 'yes'
+
+def main():
+    while student():
+        name = input("Enter Name to Add: ")
+        year = input("Enter Year to Add: ")
+        students.append({"name": name, "year": year})
+    
+    print("Students added:")
+    for i, student in enumerate(students, start=1):
+        print(f"Student{i}: {student['name']}, Year: {student['year']}")
+
+main()

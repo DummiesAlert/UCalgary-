@@ -1,23 +1,28 @@
-welcMess = ("Welcome to Subtraction Calculator: ")
+# welcMess = ("Welcome to Subtraction Calculator: ")
 
-a = int(input("Enter a Number: "))
-b = int(input("Enter Another Number: "))
+# a = int(input("Enter a Number: "))
+# b = int(input("Enter Another Number: "))
 
-true = True
+# true = True
 
-if a > b: 
+# if a > b: 
     
-    true = true
+#     true = true
     
-elif a == b: 
+# elif a == b: 
     
-    true = true
+#     true = true
 
-else: 
+# else: 
     
-    true = False
+#     true = False
     
-if true: 
+# if true: 
     
-    sub = a - b
-    print(sub)
+#     sub = a - b
+#     print(sub)
+
+import numpy
+
+array1 = numpy.array([1,2,0,False,'hello'])
+print(array1)
