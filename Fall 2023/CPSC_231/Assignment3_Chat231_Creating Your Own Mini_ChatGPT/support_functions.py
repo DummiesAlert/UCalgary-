@@ -17,7 +17,7 @@ def get_greetings(name):
         return "Hello there! I am your virtual assistant Chat231."
     
     #Otherwise Print Greeting With Name
-    return f"Greetings {name}! I am your virtual assistant Chat231." 
+    return f"Greetings {name}! I am your virtual assistant Chat231."  
 
 #is_whole_word() Function 
 def is_whole_word(word, sentence): 
