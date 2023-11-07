@@ -1,14 +1,14 @@
-#get_greetings() Function
 "chat 231"
 
 "chat 231 this is"
 "this is chat 231"
 
-#Gotta Check Space before and after the word, and determine the length of the value word and subsquentiaclly check if it matches any
-#of the formated words. 
+#Gotta Check Space before and after the word, and determine the length of the value word 
+#and subsquentiaclly check if it matches any of the formated words. 
 
 #Chatgpt: python code to check if do nut matches donut in a sentence
 
+#get_greetings() Function
 def get_greetings(name): 
     
     #If No Name Was Entered, Basic Greet. 
@@ -46,7 +46,7 @@ def is_whole_word(word, sentence):
     for wds in words: 
         if word == wds: 
             
-            return True 
+            return True
     
     #Otherwise, return False
     return False
@@ -66,6 +66,8 @@ def get_answers(q_and_a, question):
     
     #Otherwise, return a Message
     return "Sorry, I do not understand your question."
+
+print(is_whole_word('CPSC.231', 'Doo you like cpsc.231!?'))
 
 """
     
