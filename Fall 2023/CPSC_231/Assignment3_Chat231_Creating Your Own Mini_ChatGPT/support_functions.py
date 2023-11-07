@@ -67,7 +67,7 @@ def get_answers(q_and_a, question):
     #Otherwise, return a Message
     return "Sorry, I do not understand your question."
 
-print(is_whole_word('CPSC.231', 'Doo you like cpsc.231!?'))
+print(is_whole_word('CPSC.231', 'Doo you like cpsc.231!?')) #Should Return True
 
 """
     
