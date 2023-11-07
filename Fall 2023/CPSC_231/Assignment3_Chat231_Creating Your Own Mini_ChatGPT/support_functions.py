@@ -1,4 +1,14 @@
 #get_greetings() Function
+"chat 231"
+
+"chat 231 this is"
+"this is chat 231"
+
+#Gotta Check Space before and after the word, and determine the length of the value word and subsquentiaclly check if it matches any
+#of the formated words. 
+
+#Chatgpt: python code to check if do nut matches donut in a sentence
+
 def get_greetings(name): 
     
     #If No Name Was Entered, Basic Greet. 
@@ -22,7 +32,7 @@ def is_whole_word(word, sentence):
        return word in sentence
    
     #Assign List Containing punctuation. 
-    punctuation = [',', '.', '!', '?', ':', ';', '/', '"'] #Added the /, onwards.
+    punctuation = [',', '.', '!', '?', ':', ';']
     
     #Remove All Punctuation in the Sentence and Replace With a Space
     for punc in punctuation: 
