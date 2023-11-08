@@ -68,6 +68,7 @@ def get_answers(q_and_a, question):
     return "Sorry, I do not understand your question."
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # def get_answers(q_and_a, question):
 
 #     question = question.lower()
@@ -91,6 +92,8 @@ def get_answers(q_and_a, question):
 
 #     return "Sorry, I do not understand your question."
 
+=======
+>>>>>>> e1153a6f2b95397e39d17728bbf4da600554b735
 =======
 >>>>>>> e1153a6f2b95397e39d17728bbf4da600554b735
 print(is_whole_word('CPSC.231', 'Doo you like cpsc.231!?')) #Should Return True
