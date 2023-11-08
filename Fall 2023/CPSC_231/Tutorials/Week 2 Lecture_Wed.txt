@@ -18,4 +18,4 @@ Copying Files From Your Computer to Your Linux Account
         To Run Ai Auto-Grader
 
             1. Login to SSH
-            2. /home/profs/richard.zhao1/231/a3/autograde  support_functions.py 
+            2. /home/profs/richard.zhao1/231/a3/autograde support_functions.py 
