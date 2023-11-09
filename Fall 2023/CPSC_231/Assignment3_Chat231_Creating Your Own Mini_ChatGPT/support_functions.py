@@ -37,6 +37,7 @@ def is_whole_word(word, sentence):
     #Remove All Punctuation in the Sentence and Replace With a Space
     for punc in punctuation: 
         
+        word = word.replace(punc, ' ')
         sentence = sentence.replace(punc, ' ')
     
     #After Replacing Punctuation, split() sentence into words
@@ -50,6 +51,8 @@ def is_whole_word(word, sentence):
     
     #Otherwise, return False
     return False
+
+#Use Charls Way
 
 #get_answers() Function
 def get_answers(q_and_a, question):
@@ -91,6 +94,14 @@ def get_answers(q_and_a, question):
 #     return "Sorry, I do not understand your question."
 
 print(is_whole_word('CPSC.231', 'Doo you like cpsc.231!?')) #Should Return True
+print(is_whole_word("hi", "oh hi you!"))
+print(is_whole_word("hi", "high up in the sky!"))
+print(is_whole_word("Chat231", "Hi chat231!"))
+
+print(is_whole_word("Chat,231", "Hi chat,231!")) #Should Return True
+
+print(is_whole_word("Chat", "Hi chat,231!"))
+print(is_whole_word("Chat", "Hi chat231!"))
 
 """
     
