@@ -1,3 +1,5 @@
+# Sources: Punctuation used https://www.geeksforgeeks.org/python-remove-punctuation-from-string/
+
 "chat 231"
 
 "chat 231 this is"
@@ -5,8 +7,6 @@
 
 #Gotta Check Space before and after the word, and determine the length of the value word 
 #and subsquentiaclly check if it matches any of the formated words. 
-
-#Chatgpt: python code to check if do nut matches donut in a sentence
 
 #get_greetings() Function
 def get_greetings(name): 
@@ -22,16 +22,60 @@ def get_greetings(name):
 #is_whole_word() Function 
 def is_whole_word(word, sentence): 
     
-    #Set All Words and Sentences to lower() to Easily Handle Words in a Sentence. 
-    word = word.lower()
-    sentence = sentence.lower()
+# Method 1:
+    
+    # #Set All Words and Sentences to lower() to Easily Handle Words in a Sentence. 
+    # word = word.lower()
+    # sentence = sentence.lower()
    
-    #Checks Value(s) in word
-    if ' ' in word: 
+    # #Checks Value(s) in word
+    # if ' ' in word: 
           
-       return word in sentence
+    #    return word in sentence
    
-    #Assign List Containing punctuation. 
+    # #Assign List Containing punctuation. 
+    # punctuation = [',', '.', '!', '?', ':', ';']
+    
+    # #Remove All Punctuation in the Sentence and Replace With a Space
+    # for punc in punctuation: 
+        
+    #     word = word.replace(punc, ' ')
+    #     sentence = sentence.replace(punc, ' ')
+    
+    # #After Replacing Punctuation, split() sentence into words
+    # words = sentence.split()
+    
+    # #For Loop to Check if wds is in Words, if Yes return True
+    # for wds in words: 
+    #     if word == wds: 
+            
+    #         return True
+    
+    # #Otherwise, return False
+    # return False
+    
+# Method 1.5: 
+
+    # #Set All Words and Sentences to lower() to Easily Handle Words in a Sentence. 
+    # word = word.lower()
+    # sentence = sentence.lower()
+   
+    # #Assign List Containing punctuation. 
+    # punctuation = [',', '.', '!', '?', ':', ';']
+    
+    # #Remove All Punctuation in the Sentence and Replace With a Space
+    # for punc in punctuation: 
+        
+    #     word = word.replace(punc, ' ')
+    #     sentence = sentence.replace(punc, ' ')
+    
+    # #Checks Value(s) in word
+    # if ' ' in word: 
+          
+    #    return word in sentence
+
+# Method 2:
+
     punctuation = [',', '.', '!', '?', ':', ';']
     
     #Remove All Punctuation in the Sentence and Replace With a Space
@@ -39,29 +83,24 @@ def is_whole_word(word, sentence):
         
         word = word.replace(punc, ' ')
         sentence = sentence.replace(punc, ' ')
+        
+    word = f" {word} "
+    sentence = f" {sentence} "
+    word = word.lower()
+    sentence = sentence.lower()
     
-    #After Replacing Punctuation, split() sentence into words
-    words = sentence.split()
-    
-    #For Loop to Check if wds is in Words, if Yes return True
-    for wds in words: 
-        if word == wds: 
-            
-            return True
-    
-    #Otherwise, return False
-    return False
-
-#Use Charls Way
+    return word in sentence
 
 #get_answers() Function
 def get_answers(q_and_a, question):
     
+# Method 1:
+
     #Set question to lower()
-    # question = question.lower()
+    question = question.lower()
     
     #Searches for keywords in the Dictionary q_and_a. If yes, Function returns q_and_a[keyword]
-    for keyword in q_and_a: 
+    for keyword in q_and_a:
         
         if is_whole_word(keyword, question):
             
@@ -69,39 +108,15 @@ def get_answers(q_and_a, question):
     
     #Otherwise, return a Message
     return "Sorry, I do not understand your question."
-
-# def get_answers(q_and_a, question):
-
-#     question = question.lower()
     
-#     answer = q_and_a.get(question, None)
-    
-#     if answer is not None:
-#         return answer
-    
-#     return "Sorry, I do not understand your question."
-
-# def get_answers(q_and_a, question):
-
-#     question = question.lower()
-
-#     matched_answers = [q_and_a[key] for key in q_and_a if is_whole_word(key, question)]
-
-#     if matched_answers:
-
-#         return matched_answers[0]
-
-#     return "Sorry, I do not understand your question."
-
-print(is_whole_word('CPSC.231', 'Doo you like cpsc.231!?')) #Should Return True
-print(is_whole_word("hi", "oh hi you!"))
-print(is_whole_word("hi", "high up in the sky!"))
-print(is_whole_word("Chat231", "Hi chat231!"))
-
-print(is_whole_word("Chat,231", "Hi chat,231!")) #Should Return True
-
-print(is_whole_word("Chat", "Hi chat,231!"))
-print(is_whole_word("Chat", "Hi chat231!"))
+# print(is_whole_word("hi", "oh hi you!"))
+# print(is_whole_word("hi", "high up in the sky!"))
+# print(is_whole_word("Chat231", "Hi chat231!"))
+# print(is_whole_word("Chat,231", "Hi chat,231!"))
+# print(is_whole_word("Chat", "Hi chat,231!"))
+# print(is_whole_word("Chat", "Hi chat231!"))
+# print(is_whole_word("name", "name"))
+# print(is_whole_word('CPSC.231', 'Doo you like cpsc.231!?'))
 
 """
     
