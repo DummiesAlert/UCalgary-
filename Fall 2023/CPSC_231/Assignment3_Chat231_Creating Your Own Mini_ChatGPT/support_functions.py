@@ -26,28 +26,29 @@ def get_greetings(name):
     return f"Greetings {name}! I am your virtual assistant Chat231."  
 
 #is_whole_word() Function 
-def is_whole_word(word, sentence):  
+def is_whole_word(word, sentence):
 
     punctuation = [',', '.', '!', '?', ':', ';']
-    
-    #Remove All Punctuation in the Sentence and Replace With a Space
+
+    #Remove All Punctuation in the Sentence and Replace With Double Space
     for symbols in punctuation: 
-        
-        word = word.replace(symbols, ' ')
+
+        word = word.replace(symbols, '  ')
         sentence = sentence.replace(symbols, '  ')
 
     #Add a Space Before and After in word and sentence 
     word = f" {word} "
     sentence = f" {sentence} "
-    
+
     #Make word and sentence lowercase
     word = word.lower()
     sentence = sentence.lower()
 
     #Check if ' ' value is in word, if yes, return 
-    if ' ' in word: 
-          
-       return word in sentence
+
+    if ' ' in word:
+
+        return word in sentence
 
 #get_answers() Function
 def get_answers(q_and_a, question):

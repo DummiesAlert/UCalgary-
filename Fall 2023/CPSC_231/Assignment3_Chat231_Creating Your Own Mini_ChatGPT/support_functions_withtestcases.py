@@ -33,8 +33,8 @@ def is_whole_word(word, sentence):
     #Remove All Punctuation in the Sentence and Replace With a Space
     for symbols in punctuation: 
         
-        word = word.replace(symbols, ' ')
-        sentence = sentence.replace(symbols, ' ')
+        word = word.replace(symbols, '  ')
+        sentence = sentence.replace(symbols, '  ')
 
     #Add a Space Before and After in word and sentence 
     word = f" {word} "
