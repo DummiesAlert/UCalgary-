@@ -65,6 +65,29 @@ def get_answers(q_and_a, question):
     #Otherwise, return Message
     return "Sorry, I do not understand your question."
 
+# Potencial Test Cases:
+
+# print(is_whole_word('hi', 'oh hi you!')) #True
+# print(is_whole_word('hi', 'high up in the sky!')) #False
+# print(is_whole_word('Chat231', 'Hi chat231!')) #True
+# print(is_whole_word('Chat,231', 'Hi chat,231!')) #True
+# print(is_whole_word('Chat', 'Hi chat,231!')) #True
+# print(is_whole_word('Chat', 'Hi chat231!')) #False
+# print(is_whole_word('chat', 'Hi!chat,231!')) #True
+# print(is_whole_word('CPSC.231', 'Doo you like cpsc.231!?')) #True
+# print(is_whole_word('NAME', 'What is your nakesake name?')) #True
+# print(is_whole_word('Chat', 'What chat1 of chat!chat is chatting?')) #True
+# print(is_whole_word('name', 'name')) #True
+# print(is_whole_word('final exam', 'final,exam')) #Should return False
+# print(is_whole_word('name', 'what is your name sake?')) #True
+# print(is_whole_word('deadline', "what's the ,deadline!")) #True
+# print(is_whole_word(',name', 'name,name')) #False
+# print(is_whole_word('250-days', 'There are 250 days in the school year.')) #False
+# print(is_whole_word('250-days', 'There are  250-days in the school year.')) #True
+# print(is_whole_word('apple pie', 'I like apple pieing together puzzles.')) #False
+# print(is_whole_word("   ", "    ")) #True
+# print(is_whole_word("", "")) #True
+
 """
     
 Screen Dump: 
