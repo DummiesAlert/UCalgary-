@@ -1,0 +1,29 @@
+Exam 3 will be in your own enrolled tutorial, on Tuesday Nov 21 or Wednesday Nov 22.  All exams are in-person, on paper.  All exams are 50 minutes.  
+
+Student Accessibility Services:  If you made arrangements with SAS, please go to their location to write your exam.
+
+Notes:
+
+    - You must bring a photo ID card as proof of identity.  It must show your name and your photo.  Your photo should look like you and your name should match the name the university has on the class list.  If you don't have any photo ID, the university provides an ID card for free:  https://www.ucalgary.ca/ancillary/unicard/get-card/get-your-card.  You will need to send the request at least a week ahead of the exam.
+    - You must attend your own enrolled tutorial.  Your TA will take attendance and match your ID with the enrolment list. Your TA cannot grade the exam of a student that is enrolled with a different TA, so attending the wrong tutorial will result in a grade of F.
+    - If you have to miss the exam due to legitimate reasons (such as sickness), you need to submit a request form for missing exams: https://forms.office.com/r/2wN7KNhYEK.  For sickness, a doctor's note will be required.
+ 
+Format:
+
+    - Two questions: The first question asks you to identify errors in code. The second question asks you to write new Python code.
+
+Material Covered: 
+
+Course content on Python up to the Lectures on Functions, Lists, Sets, Tuples, Dictionaries.  Textbook Chapters 1-6.  Numpy Arrays (or any other imports) will not be on this exam but will be on the final exam.
+
+Allowed During Exam:
+
+    - Pencil/Pen and Eraser only.  Computers and phones must be off.
+
+Sample Exam:  Sample Exam 3.pdf
+
+    - If you want to have more practice problems, do the exercises in the textbook.
+
+You are expected to write legibly so that your TA can understand your hand writing. If your TA cannot read your writing, your TA cannot give you points.
+
+Code will be graded on correctness including syntax and logic.
