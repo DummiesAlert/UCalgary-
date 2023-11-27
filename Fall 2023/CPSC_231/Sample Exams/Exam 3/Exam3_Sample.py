@@ -37,7 +37,7 @@ print(get_smallest_value(dictionary.items()))
 
 def get_smallest_value2(dictionary):
     sorted_values = sorted(dictionary.values())
-    return sorted_values[0]
+    return sorted_values[1]
 
 print(get_smallest_value2(dictionary))
 
