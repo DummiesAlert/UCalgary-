@@ -8,7 +8,7 @@ class Board:
         
         try:
             
-            with open('C:\Users\georg\source\repos\UCalgary-\map.txt', "r") as map_file:
+            with open('map.txt', "r") as map_file:
                 
                 for line in map_file:
                     
@@ -20,7 +20,6 @@ class Board:
                             
                             row.append("#")
                             
-                        
                         else:
                             
                             row.append(" ")
@@ -33,7 +32,7 @@ class Board:
         
         try:
             
-            with open("players.txt", "r") as players_file:
+            with open('players.txt', 'r') as players_file:
                 
                 for line in players_file:
                     
@@ -48,15 +47,14 @@ class Board:
         
         try:
             
-            with open("exit.txt", "r") as exit_file:
+            with open('exit.txt', 'r') as exit_file:
                 
-                line = exit_file.readline().strip()
-                self.exit = (int(line[0]), int(line[2]))
-                
+                self.exit = tuple(map(int, exit_file.readline().strip().split()))
+        
         except FileNotFoundError:
             
             print("Exit file not found")
-    
+
     def get_board(self):
         
         return self.board
@@ -70,7 +68,8 @@ class Board:
             "R": (0, 1)
         }
         
-        for i, (row, col) in enumerate(self.players):
+        for i in range(len(self.players)):
+            row, col = self.players[i]
             
             new_row = row + directions[direction][0]
             new_col = col + directions[direction][1]
@@ -83,7 +82,7 @@ class Board:
                     
                 elif (new_row, new_col) in self.players:
                     
-                    continue
+                    continue #Remove 
                 
                 else:
                     
@@ -95,7 +94,7 @@ class Board:
                         
             else:
                 
-                continue
+                continue #Remove 
     
     def get_state(self):
         
