@@ -57,6 +57,8 @@ class Board:
 
     def get_board(self):
         
+        # self.board.replace()
+        
         return self.board
     
     def update(self, direction):
