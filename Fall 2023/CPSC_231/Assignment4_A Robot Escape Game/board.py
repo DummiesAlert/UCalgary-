@@ -1,191 +1,177 @@
 class Board:
     def __init__(self):
-        
-        self.board = []
-        self.players = []
-        self.exit = []
-        
         try:
-            
-            with open('map.txt', "r") as map_file:
-                
-                for line in map_file:
-                    
-                    row = []
-                    
-                    for char in line.strip():
-                        
-                        if char == "#":
-                            
-                            row.append("#")
-                            
-                        else:
-                            
-                            row.append(" ")
-                            
-                    self.board.append(row)
-                    
+            # Read map file
+            with open("map.txt", "r") as map_file:
+                self.game_grid = [list(line.strip()) for line in map_file]
+
+                # Check if the map file has the correct size (12 rows, 16 columns)
+                if len(self.game_grid) != 12 or any(len(row) != 16 for row in self.game_grid):
+                    print("Invalid map file. Map must have 12 rows and 16 columns.")
+                    # If the map file is invalid, create an empty grid
+                    self.game_grid = [[" " for _ in range(16)] for _ in range(12)]
+
         except FileNotFoundError:
-            
-            print("Map file not found")
-        
+            print("Map file not found. Creating an empty grid.")
+            self.game_grid = [[" " for _ in range(16)] for _ in range(12)]
+
         try:
-            
-            with open('players.txt', 'r') as players_file:
-                
-                for line in players_file:
-                    
-                    player_info = line.strip().split()
-                    row = int(player_info[0])
-                    col = int(player_info[1])
-                    self.players.append((row, col))
-                    
+            # Read players file
+            with open("players.txt", "r") as players_file:
+                self.players = [tuple(map(int, line.strip().split())) for line in players_file]
+
+                # Check the number of players
+                if not (1 <= len(self.players) <= 4):
+                    print("Invalid players file. It should contain 1 to 4 player positions.")
+                    # If the players file is invalid, create an empty players list
+                    self.players = []
+                else:
+                    print("Players loaded successfully.")
+                    print("Players:", self.players)
+                    # Update the game grid with player positions
+                    for row, col in self.players:
+                        self.game_grid[row][col] = "P"
+
         except FileNotFoundError:
-            
-            print("Players file not found")
-        
+            print("Players file not found. Creating an empty players list.")
+            self.players = []
+
         try:
-            
-            with open('exit.txt', 'r') as exit_file:
-                
-                self.exit = tuple(map(int, exit_file.readline().strip().split()))
-        
+            # Read exit file
+            with open("exit.txt", "r") as exit_file:
+                exit_position = tuple(map(int, exit_file.readline().strip().split()))
+
+                # Check if there is exactly one exit position
+                if len(exit_position) != 2:
+                    print("Invalid exit file. It should contain exactly 1 exit position.")
+                    # If the exit file is invalid, set the exit position to (0, 0)
+                    exit_position = (0, 0)
+                else:
+                    print("Exit loaded successfully.")
+                    print("Exit Position:", exit_position)
+                    # Update the game grid with the exit position
+                    self.game_grid[exit_position[0]][exit_position[1]] = "E"
+
+                self.exit_position = exit_position
+
         except FileNotFoundError:
-            
-            print("Exit file not found")
+            print("Exit file not found. Setting the exit position to (0, 0).")
+            self.exit_position = (0, 0)
 
     def get_board(self):
-        
-        # self.board.replace()
-        
-        return self.board
-    
+        return self.game_grid
+
+    def get_players(self):
+        return self.players
+
+    def get_exit_position(self):
+        return self.exit_position
+
     def update(self, direction):
-        
-        directions = {
-            "U": (-1, 0),
-            "D": (1, 0),
-            "L": (0, -1),
-            "R": (0, 1)
-        }
-        
-        for i in range(len(self.players)):
-            row, col = self.players[i]
-            
-            new_row = row + directions[direction][0]
-            new_col = col + directions[direction][1]
-            
-            if 0 <= new_row < len(self.board) and 0 <= new_col < len(self.board[0]):
-                
-                if self.board[new_row][new_col] == "#":
-                    
-                    self.players.pop(i)
-                    
-                elif (new_row, new_col) in self.players:
-                    
-                    continue #Remove 
-                
-                else:
-                    
+        # Create a copy of the current game grid to avoid modifying the original list
+        new_game_grid = [list(row) for row in self.game_grid]
+
+        # Define movement offsets based on the direction
+        move_offsets = {"U": (-1, 0), "D": (1, 0), "L": (0, -1), "R": (0, 1)}
+
+        players_disappeared = 0
+        players_at_exit = 0
+
+        for i, (row, col) in enumerate(self.players):
+            # Calculate the new position based on the direction
+            new_row = row + move_offsets[direction][0]
+            new_col = col + move_offsets[direction][1]
+
+            # Check if the new position is within the bounds of the board
+            if 0 <= new_row < len(self.game_grid) and 0 <= new_col < len(self.game_grid[0]):
+                # Check if the target position is an empty space, wall, or exit
+                if self.game_grid[new_row][new_col] == " ":
+                    new_game_grid[row][col] = " "  # Clear the current position
+                    new_game_grid[new_row][new_col] = "P"  # Set the new position
+                    # Update players with the new position
                     self.players[i] = (new_row, new_col)
-                    
-                    if (new_row, new_col) == self.exit:
-                        
-                        self.players.pop(i)
-                        
-            else:
-                
-                continue #Remove 
-    
+                elif self.game_grid[new_row][new_col] == "#":
+                    # If the target position is a wall, the player disappears
+                    new_game_grid[row][col] = " "  # Clear the current position
+                    # Update players without adding the player back to the new position
+                    self.players[i] = (-1, -1)  # Mark the player as disappeared
+                elif self.game_grid[new_row][new_col] == "E":
+                    # If the target position is an exit, the player disappears
+                    new_game_grid[row][col] = " "  # Clear the current position
+                    # Update players without adding the player back to the new position
+                    self.players[i] = (-1, -1)  # Mark the player as disappeared
+                    players_at_exit += 1
+
+        # Update the game grid with the new positions
+        self.game_grid = new_game_grid
+
     def get_state(self):
-        
-        if len(self.players) == 0:
-            
-            return 1 if len(self.players) == 0 else 2
-        
-        elif len(self.players) == 0:
-            
-            return 2
-        
-        elif len(self.players) == 0:
-            
-            return 3
-        
-        else:
-            
-            return 0
-    
+        players_disappeared = 0
+        players_at_exit = 0
+
+        for row, col in self.players:
+            # Check if the player has moved into a wall
+            if self.game_grid[row][col] == '#':
+                players_disappeared += 1
+            # Check if the player has moved into the exit
+            elif self.game_grid[row][col] == 'E':
+                players_disappeared += 1
+                players_at_exit += 1
+
+        if players_at_exit == len(self.players):
+            print("Debug: All robots moved into the exit.")
+            return 2  # You win!
+
+        if players_disappeared == len(self.players):
+            print("Debug: All robots hit the wall or moved into the exit.")
+            return 1  # You lost.
+
+        if players_at_exit > 0 and players_disappeared > 0:
+            print("Debug: Some robots moved into the exit, and others hit the wall.")
+            return 3  # You could do better!
+
+        # Game is not over yet
+        print("Debug: Game is not over yet.")
+        print('players disappeared', players_disappeared)
+        print('players at exit', players_at_exit)
+        return 0
+
+    def get_state(self):
+        players_disappeared = 0
+        players_at_exit = 0
+
+        for row, col in self.players:
+            # Check if the player has moved into a wall
+            if self.game_grid[row][col] == '#':
+                players_disappeared += 1
+            # Check if the player has moved into the exit
+            elif self.game_grid[row][col] == 'E':
+                players_disappeared += 1
+                players_at_exit += 1
+
+        if players_at_exit == len(self.players):
+            print("Debug: All robots moved into the exit.")
+            return 2  # You win!
+
+        if players_disappeared == len(self.players):
+            print("Debug: All robots hit the wall or moved into the exit.")
+            return 1  # You lost.
+
+        if players_at_exit > 0 and players_disappeared > 0:
+            print("Debug: Some robots moved into the exit, and others hit the wall.")
+            return 3  # You could do better!
+
+        # Game is not over yet
+        print("Debug: Game is not over yet.")
+        print('players disappeared', players_disappeared)
+        print('players at exit', players_at_exit)
+        return 0
+
     def save_game(self):
-        
-        try:
-            
-            with open("save_game.txt", "w") as save_file:
-                
-                save_file.write("Board:\n")
-                
-                for row in self.board:
-                    
-                    save_file.write("".join(row) + "\n")
-                    
-                save_file.write("Players:\n")
-                
-                for player in self.players:
-                    
-                    save_file.write(f"{player[0]} {player[1]}\n")
-                    
-                save_file.write("Exit:\n")
-                save_file.write(f"{self.exit[0]} {self.exit[1]}\n")
-                
-        except:
-            
-            print("Error saving game")
-    
+        return
+
     def load_game(self):
-        
-        try:
-            
-            with open("save_game.txt", "r") as save_file:
-                
-                section = ""
-                
-                for line in save_file:
-                    
-                    if line.strip() == "Board:":
-                        
-                        section = "board"
-                        
-                    elif line.strip() == "Players:":
-                        
-                        section = "players"
-                        
-                    elif line.strip() == "Exit:":
-                        
-                        section = "exit"
-                        
-                    else:
-                        
-                        if section == "board":
-                            
-                            self.board.append(list(line.strip()))
-                            
-                        elif section == "players":
-                            
-                            player_info = line.strip().split()
-                            row = int(player_info[0])
-                            col = int(player_info[1])
-                            self.players.append((row, col))
-                            
-                        elif section == "exit":
-                            
-                            exit_info = line.strip().split()
-                            row = int(exit_info[0])
-                            col = int(exit_info[1])
-                            self.exit = (row, col)
-                            
-        except FileNotFoundError:
-            
-            print("Save game file not found")
-    
+        return
+
     def get_steps(self):
-        
-        return len(self.players)
+        return self.steps
