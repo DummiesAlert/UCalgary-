@@ -1,182 +1,254 @@
+"""Author: Zhuo Xi Hong 
+   UCID: 30213715
+   Last Modified: Dec/13/2023
+
+Prompt: Write a mini robot game
+
+Sources:  
+        
+    Tutorial:
+    
+        - TA Naman: Helped with managing the file imports and several minor changes.
+        
+            - def update(self, direction): with directions if else and controls(Around Lines 135-176)
+            - def load_game, fixed some loading, but not work.
+
+"""
+
 class Board:
+    
     def __init__(self):
         
-        # --- Initializing variables ---
+        #Define Variables
         self.players = []
-        self.board = [[' ' for i in range(16)] for j in range(12)]
-        self.exit = None # initialized as none as the exit only holds a single coordinate value -> best practice from code examples I've seen
-        self.escaped_robots = 0
-        self.dead_robots = 0
+        
+        #Check If Board Meets The 12 Col and 16 Row
+        self.board = [[' ' 
+                       
+                       for i in range(16)] 
+                       for j in range(12)]
+        
+        self.exit = None #Manage One Exit Coordinate of the Robot
+        
+        self.robotsExited = 0
+        self.robotsCollided = 0
         self.steps = 0
-        player_rows = 0
-        error_printed = False
+        
+        playerPosition = 0
+        errorCheck = False
 
-        # --- Defining File Paths ---
-        map_path = "map.txt"
-        players_path = "players.txt"
-        exit_path = "exit.txt"
-        self.user_data_path = "USR-DATA.txt" # save file name taken from TLOU P1 lol
-
-        # --- File Reading using with statements to handle exceptions easier ---
-
-        # Reading MAP file and creating board using file
+        #Try/Except for 'map.txt' and Create self.board
         try:
-            with open(map_path, 'r') as file:
+            
+            with open('map.txt', 'r') as file:
+                
                 for row, line in enumerate(file):
+                    
                     line = line.strip("\n")
-                    for col, symbol in enumerate(line):
-                        if symbol == '#':
+                    
+                    for col, char in enumerate(line):
+                        
+                        if char == '#':
+                            
                             self.board[row][col] = '#'
+                            
                         else:
+                            
                             self.board[row][col] = ' '
-        except:
-            print("Error reading map file!")
+                            
+        except FileNotFoundError:
+            
+            print("Error Reading Map File!")
 
-        # Reading PLAYERS file and creating player list using file
+        #Try/Except for 'players.txt' and Error Check
         try:
-            with open(players_path, 'r') as file:
+            
+            with open('players.txt', 'r') as file:
+                
                 for line in file:
-                    player_rows += 1
+                    
+                    playerPosition += 1
                     line = line.strip("\n")
-                    row, col = map(int, line.split(' ')) # learning all about built-in python functions lol
-                    if player_rows > 4 and not error_printed: # checking if player file is in valid format
-                        print("File is in invalid format")
-                        error_printed = True
+                    row, col = map(int, line.split(' '))
+                    
+                    if playerPosition > 4 and not errorCheck: #File Checking
+                        
+                        print("File Format is Invalid!")
+                        errorCheck = True
+                        
                     else:
+                        
                         self.players.append((row, col))
-        except:
-            print("Error reading players file!")
 
-        # Reading EXIT file and creating exit coordinate using file
+        except FileNotFoundError:
+            
+            print("Error Reading Players File!")
+        
+        #Try/Except for 'exit.txt' and Error Check
         try:
-            with open(exit_path, 'r') as file:
+            
+            with open('exit.txt', 'r') as file:
+                
                 line = file.readline()
                 line = line.strip("\n")
                 row, col = map(int, line.split(' '))
-                if row < 0 or col < 0 or col >= len(self.board[0]):
-                    print("File is in invalid format")
+                
+                if row < 0 or col < 0 or col >= len(self.board[0]): #Check If on Board
+                    
+                    print("File Format is Invalid!")   
+                                     
                 else:
+                    
                     self.exit = (row, col)
-        except:
-            print("Error reading exit file!")
-
-
+                    
+        except FileNotFoundError:
+            
+            print("Error Reading Exit File!")
 
     def get_board(self):
-        # --- Initalizes board with players and exit placed ---
+        
         for players in self.players:
-            row, col = players # tuple unpacking
+            
+            #Unpack Tuple in Players
+            row, col = players
             self.board[row][col] = 'P'
 
         if self.exit:
-            exit_row, exit_col = self.exit
-            self.board[exit_row][exit_col] = 'E'
+            
+            #Clean Up Exit
+            exitRow, exitCol = self.exit
+            self.board[exitRow][exitCol] = 'E'
 
         return self.board               
 
-
-
     def update(self, direction):
-        # --- Initializing variables ---
-        before_positions = self.players.copy() # Don't know if copy is necessary but don't wanna break anything
-        after_positions = []
-        max_row = len(self.board) - 1
-        max_col = len(self.board[0]) - 1
+        
+        #List of Where the Players Are
+        positionPrev = list(self.players)
+        positionAfter = []
+        
+        #Determine the Length of the Board
+        maxRow = len(self.board) - 1
+        maxCol = len(self.board[0]) - 1
 
-        # Clearing old player positions
-        for player_row, player_col in before_positions:
-            self.board[player_row][player_col] = ' '
+        #Refresh Game Board
+        for playerRow, playerCol in positionPrev:
+            
+            self.board[playerRow][playerCol] = ' '
 
-        tentative_positions = [] # List to store player positions before collision check
+        #Position After Moving
+        tentPositions = []
 
-        # --- Calculating movement ---
-        for player_row, player_col in before_positions:
-            if direction == "U":
-                new_row, new_col = max(player_row - 1, 0), player_col
-            elif direction == "D":
-                new_row, new_col = min(player_row + 1, max_row), player_col
-            elif direction == "L":
-                new_row, new_col = player_row, max(player_col - 1, 0)
-            elif direction == "R":
-                new_row, new_col = player_row, min(player_col + 1, max_col)
+        #Create Direction Movement
+        for playerRow, playerCol in positionPrev:
+            
+            if direction == "U": #Moves Player Up and Change the Row and Col of the Players
+                
+                    newRow, newCol = (playerRow - 1, playerCol) if playerRow > 0 else (0, playerCol) 
+                    
+            elif direction == "D": #Moves Player Down and Change the Row and Col of the Players
+                
+                    newRow, newCol = (playerRow + 1, playerCol) if playerRow + 1 < maxRow else (maxRow, playerCol)
+                    
+            elif direction == "L": #Moves Player Left and Change the Row and Col of the Players
+                
+                    newRow, newCol = (playerRow, playerCol - 1) if playerCol > 0 else (playerRow, 0)
+                    
+            elif direction == "R": #Moves Player Right and Change the Row and Col of the Players
+                
+                    newRow, newCol = (playerRow, playerCol + 1) if playerCol + 1 < maxCol else (playerRow, maxCol)
 
-            tentative_positions.append((new_row, new_col))  # Add to tentative positions
+            #Make the Position to the New Position After Moving
+            tentPositions.append((newRow, newCol))
 
-        # --- Check for collisions and ensure moves are valid ---
-        for i, (new_row, new_col) in enumerate(tentative_positions):
-            if (new_row, new_col) == self.exit:
-                self.escaped_robots += 1 # increments when robot reaches exit
-            elif self.board[new_row][new_col] == '#': 
-                self.dead_robots += 1 # increments when robot hits wall
-            elif tentative_positions.count((new_row, new_col)) > 1:
-                return # if collision is detected, no movement is made
+        #Collision Management and Error Checking
+        for i, (newRow, newCol) in enumerate(tentPositions): #List After Movement
+            
+            if (newRow, newCol) == self.exit: #Determine Players Exit Cords
+                
+                self.robotsExited += 1 #Exit Cords
+                
+            elif self.board[newRow][newCol] == '#': #Determine Players Collision Cords
+                
+                self.robotsCollided += 1 #Collision Cords
+                
+            elif tentPositions.count((newRow, newCol)) > 1:
+                
+                return #Collision, no return, no movement
+            
             else:
-                after_positions.append((new_row, new_col))
+                
+                positionAfter.append((newRow, newCol)) #Determine Final Cords of the Players
 
-        self.players = after_positions # final player positions per game 'tick'
+        #Set Player Cords to the Final Cords 
+        self.players = positionAfter
         self.steps += 1
 
-
-    
-
     def get_state(self):
-        # --- Returns the current state of the game ---
+
+        #Find Robots and Player Positions
         if not self.players:
-            if self.escaped_robots and self.dead_robots:
-                return 3  # Did some robots escape, and some died?
-            elif self.escaped_robots:
-                return 1  # Did all players escape?
-            else:
-                return 2  # Did all players die?
-        return 0  # Game is still ongoing  
-
-
-       
+            
+            if self.robotsExited:
+                
+                return 1  #All Escaped?
+            
+            elif self.robotsCollided:
+                
+                return 2  #All Died?
+            
+            elif self.robotsExited and self.robotsCollided:
+                
+                return 3  #Escaped and Not?
+            
+        return 0  #Game Not Over
+     
     def save_game(self):
-        # --- Saves the entire current state of the game in a single file ---
+
+        #Save Game
         try:
-            with open(self.user_data_path, 'w') as file: 
+            
+            with open('load.txt', 'w') as file: 
+                
                 for row in self.board:
-                    file.write(''.join(row) + '\n') # writing the board to the file
+                    
+                    file.write(''.join(row) + '\n') #Write Board Into load.txt 
 
-                file.write(f"{self.escaped_robots} {self.dead_robots}\n") # writing the game state to the file
-                file.write(f"{self.steps}") # writing the steps to the file
+                #Game Progress: Robots Exited, Collided and Amount of Steps
+                file.write(f"Robots Exited: {self.robotsExited}\nRobots Collided: {self.robotsCollided}\nSteps: {self.steps}\n")
 
-                print(f"Game saved successfully to {self.user_data_path}!") # log message
+                print(f"Game Saved Successfully to {'load.txt'}!")
 
-        except:
-            print("Error saving user data!")
-
-
+        except FileNotFoundError:
+            
+            print("Error Saving User Data!")
 
     def load_game(self):
-        # --- Loads a previously saved state ---
-        self.__init__() # Clearing the current state of the board
-
+        
         try:
-            with open(self.user_data_path, 'r') as file:
+           
+            #Start Game
+            self.__init__()
+
+            with open('load.txt', 'r') as file:
                 lines = file.readlines()
 
-                # Reading the board from the file
-                self.board = [list(line[:16]) for line in lines[:-2]] 
+                #Read the Board Info and Strip
+                self.board = [list(line.strip('\n')) for line in lines[:-2]]
 
-                self.players = []
+                #Read Game Info
+                self.robotsExited, self.robotsCollided = map(int, lines[-2].split())
 
-                for i, row in enumerate(self.board):
-                    for j, cell in enumerate(row):
-                        if cell == 'P':
-                            self.players.append((i, j))
-                        elif cell == 'E':
-                            self.exit = (i, j)
+                #Read Steps
+                self.steps = int(lines[-1])
 
-                self.escaped_robots, self.dead_robots = map(int, lines[-2].strip().split()) # Reading the game state from the file
+                print(f"Game Loaded Successfully From {'load.txt'}!")
 
-                self.steps = int(lines[-1].strip()) # Reading the steps from the file
+        except FileNotFoundError:
+            
+            print("Error Loading Game Data")
 
-                print(f"Game loaded successfully from {self.user_data_path}!") # log message
-
-        except:
-            print("Error loading user data!")
-
+    #Return Itself and Determine the Steps Used
     def get_steps(self):
-        return self.steps
+        
+        return self.steps 
