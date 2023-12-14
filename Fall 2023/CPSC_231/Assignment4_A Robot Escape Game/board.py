@@ -5,6 +5,9 @@
 Prompt: Write a mini robot game
 
 Sources:  
+
+    - map(): https://www.w3schools.com/python/ref_func_map.asp
+    - enumerate(): https://www.w3schools.com/python/ref_func_enumerate.asp#:~:text=The%20enumerate()%20function%20takes,key%20of%20the%20enumerate%20object.
         
     Tutorial:
     
