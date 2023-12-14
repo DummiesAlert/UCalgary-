@@ -7,11 +7,14 @@ Prompt: Write a mini robot game
 Sources:  
 
     - map(): https://www.w3schools.com/python/ref_func_map.asp
+        - Changes all things into an iterable without using a loop (yaaaa)
     - enumerate(): https://www.w3schools.com/python/ref_func_enumerate.asp#:~:text=The%20enumerate()%20function%20takes,key%20of%20the%20enumerate%20object.
+        - Reads List and Checks Them Values, mostly
+    - lists(): https://www.w3schools.com/python/python_lists_methods.asp
         
     Tutorial:
     
-        - TA Naman: Helped with managing the file imports and several minor changes.
+        - TA Naman: Helped with managing the gameFile imports and several minor changes.
         
             - def update(self, direction): with directions if else and controls(Around Lines 135-176)
             - def load_game, fixed some loading, but not work.
@@ -43,9 +46,9 @@ class Board:
         #Try/Except for 'map.txt' and Create self.board
         try:
             
-            with open('map.txt', 'r') as file:
+            with open('map.txt', 'r') as gameFile:
                 
-                for row, line in enumerate(file):
+                for row, line in enumerate(gameFile):
                     
                     line = line.strip("\n")
                     
@@ -66,9 +69,9 @@ class Board:
         #Try/Except for 'players.txt' and Error Check
         try:
             
-            with open('players.txt', 'r') as file:
+            with open('players.txt', 'r') as gameFile:
                 
-                for line in file:
+                for line in gameFile:
                     
                     playerPosition += 1
                     line = line.strip("\n")
@@ -90,9 +93,9 @@ class Board:
         #Try/Except for 'exit.txt' and Error Check
         try:
             
-            with open('exit.txt', 'r') as file:
+            with open('exit.txt', 'r') as gameFile:
                 
-                line = file.readline()
+                line = gameFile.readline()
                 line = line.strip("\n")
                 row, col = map(int, line.split(' '))
                 
@@ -211,14 +214,14 @@ class Board:
         #Save Game
         try:
             
-            with open('load.txt', 'w') as file: 
+            with open('load.txt', 'w') as gameFile: 
                 
                 for row in self.board:
                     
-                    file.write(''.join(row) + '\n') #Write Board Into load.txt 
+                    gameFile.write(''.join(row) + '\n') #Write Board Into load.txt 
 
                 #Game Progress: Robots Exited, Collided and Amount of Steps
-                file.write(f"Robots Exited: {self.robotsExited}\nRobots Collided: {self.robotsCollided}\nSteps: {self.steps}\n")
+                gameFile.write(f"Robots Exited: {self.robotsExited}\nRobots Collided: {self.robotsCollided}\nSteps: {self.steps}\n")
 
                 print(f"Game Saved Successfully to {'load.txt'}!")
 
@@ -233,8 +236,8 @@ class Board:
             #Start Game
             self.__init__()
 
-            with open('load.txt', 'r') as file:
-                lines = file.readlines()
+            with open('load.txt', 'r') as gameFile:
+                lines = gameFile.readlines()
 
                 #Read the Board Info and Strip
                 self.board = [list(line.strip('\n')) for line in lines[:-2]]
