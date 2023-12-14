@@ -23,7 +23,7 @@ Sources:
 
 class Board:
     
-    def __init__(self):
+    def __init__(self): 
         
         #Define Variables
         self.players = []
