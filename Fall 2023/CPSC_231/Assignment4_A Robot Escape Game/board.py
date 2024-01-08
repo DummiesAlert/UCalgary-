@@ -247,6 +247,8 @@ class Board:
 
                 #Read Steps
                 self.steps = int(lines[-1])
+                #self.steps = float(lines[-2])
+                #self.steps = float(lines[-2:-1])
 
                 print(f"Game Loaded Successfully From {'load.txt'}!")
 

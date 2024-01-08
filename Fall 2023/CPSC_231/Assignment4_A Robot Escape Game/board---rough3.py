@@ -136,6 +136,14 @@ class Board:
                 save_file.write("Exit:\n")
                 save_file.write(f"{self.exit[0]} {self.exit[1]}\n")
                 
+                # New Thoughts
+                # for player in self.board: 
+                    
+                #     save_file.write(f"{player[1]} {player[2]}\n")
+                    
+                # save_file.write("Board: \n")
+                # save_file.write(f"{self.board[0]} {self.board[1]}\n")
+                
         except:
             
             print("Error saving game")
